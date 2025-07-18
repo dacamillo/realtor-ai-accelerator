@@ -28,7 +28,7 @@ export function HeroSection() {
               
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Never Miss Another
-                <span className="block text-primary-glow">Real Estate Lead</span>
+                <span className="block text-white">Real Estate Lead</span>
               </h1>
               
               <p className="text-xl text-white/90 leading-relaxed max-w-xl">

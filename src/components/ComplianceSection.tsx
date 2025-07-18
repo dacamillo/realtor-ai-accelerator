@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle, BookOpen, Users, FileText, Clock } from "lucide-react";
 import { InteractiveFeatureModal } from "./InteractiveFeatureModal";
 import narLogo from "@/assets/nar-official-logo.png";
-import realtorLogo from "@/assets/realtor-logo.png";
 import realtorTech from "@/assets/realtor-technology.jpg";
 
 export function ComplianceSection() {
@@ -68,8 +67,8 @@ export function ComplianceSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-8 mb-8">
-            <img src={narLogo} alt="NAR Logo" className="h-16 object-contain" />
-            <img src={realtorLogo} alt="REALTOR Logo" className="h-16 object-contain" />
+            <img src={narLogo} alt="NAR National Association of REALTORS Logo" className="h-16 object-contain" />
+            <img src={narLogo} alt="NAR National Association of REALTORS Logo" className="h-16 object-contain" />
           </div>
           
           <Badge variant="secondary" className="mb-4 px-4 py-2">
