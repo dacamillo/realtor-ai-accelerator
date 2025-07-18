@@ -5,11 +5,27 @@ import { useState } from "react";
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const scrollToPricing = () => {
+    scrollToSection('pricing-section');
+  };
+
+  const scrollToCalendar = () => {
+    scrollToSection('calendar-section');
+  };
+
   const navItems = [
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Demo", href: "#demo" }
+    { label: "Features", sectionId: "solution-section" },
+    { label: "Pricing", sectionId: "pricing-section" },
+    { label: "Testimonials", sectionId: "testimonials-section" },
+    { label: "Book Call", sectionId: "calendar-section" }
   ];
 
   return (
@@ -27,22 +43,22 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => scrollToSection(item.sectionId)}
+                className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Login
+            <Button variant="ghost" size="sm" onClick={scrollToCalendar}>
+              Book Call
             </Button>
-            <Button variant="cta" size="sm">
+            <Button variant="cta" size="sm" onClick={scrollToPricing}>
               Get Started
             </Button>
           </div>
@@ -65,20 +81,19 @@ export function Header() {
           <div className="md:hidden bg-white border-t border-border py-4">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => scrollToSection(item.sectionId)}
+                  className="text-muted-foreground hover:text-foreground transition-colors py-2 text-left cursor-pointer"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="ghost" size="sm">
-                  Login
+                <Button variant="ghost" size="sm" onClick={scrollToCalendar}>
+                  Book Call
                 </Button>
-                <Button variant="cta" size="sm">
+                <Button variant="cta" size="sm" onClick={scrollToPricing}>
                   Get Started
                 </Button>
               </div>
