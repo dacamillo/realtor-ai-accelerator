@@ -7,21 +7,24 @@ export function TestimonialsSection() {
   const usageExamples = [
     {
       plan: "Enterprise",
-      title: "Market Domination Strategy",
-      description: "5,000+ monthly calls to dominate multiple markets simultaneously",
-      color: "primary"
+      title: "Market Domination Blueprint",
+      description: "The secret system top producers use to control entire markets...",
+      highlight: "5,000+ AI calls/month",
+      urgent: "🚀 Most Popular"
     },
     {
       plan: "Professional", 
-      title: "Scaling Strategy",
-      description: "2,000 monthly calls to scale from solo agent to team leader",
-      color: "secondary"
+      title: "Team Leader Transformation",
+      description: "How solo agents build million-dollar teams in 90 days...",
+      highlight: "2,000 AI calls/month",
+      urgent: "⚡ Best Value"
     },
     {
       plan: "Starter",
-      title: "Foundation Building Strategy", 
-      description: "500 monthly calls to build a solid foundation as a new agent",
-      color: "accent"
+      title: "Rookie to Rockstar Formula", 
+      description: "The exact playbook new agents use to close 10+ deals monthly...",
+      highlight: "500 AI calls/month",
+      urgent: "🎯 Perfect Start"
     }
   ];
 
@@ -74,25 +77,45 @@ export function TestimonialsSection() {
         {/* Usage Examples Section */}
         <div className="bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/10 rounded-2xl p-8 mb-16">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-2">Implementation Strategies</h3>
-            <p className="text-muted-foreground">Choose your path to success with our proven frameworks</p>
+            <h3 className="text-2xl font-bold mb-2">Real Agent Success Blueprints</h3>
+            <p className="text-muted-foreground">Discover the exact strategies our top performers use daily</p>
           </div>
           
           <div className="grid lg:grid-cols-3 gap-6">
             {usageExamples.map((example, index) => (
-              <div key={index} className="bg-background/80 backdrop-blur-sm border border-border/50 shadow-soft hover:shadow-strong transition-all duration-300 rounded-xl p-6">
-                <div className="text-center space-y-4">
-                  <Badge variant="secondary" className="text-sm font-medium">
-                    {example.plan} Plan
-                  </Badge>
-                  <h4 className="text-xl font-bold">{example.title}</h4>
-                  <p className="text-muted-foreground text-sm">{example.description}</p>
+              <div key={index} className="relative bg-gradient-to-br from-background via-background/95 to-primary/5 border-2 border-primary/20 shadow-glow hover:shadow-strong hover:border-primary/40 transition-all duration-300 rounded-xl p-6 group overflow-hidden">
+                {/* Urgent Badge */}
+                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  {example.urgent}
+                </div>
+                
+                {/* Glowing effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                
+                <div className="relative text-center space-y-4">
+                  <div className="space-y-2">
+                    <Badge variant="outline" className="text-xs font-bold text-primary border-primary bg-primary/10">
+                      {example.plan} Plan
+                    </Badge>
+                    <div className="text-lg font-bold text-primary">{example.highlight}</div>
+                  </div>
+                  
+                  <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    {example.title}
+                  </h4>
+                  
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {example.description}
+                  </p>
                   
                   <UsageExamplesModal
                     plan={example.plan}
                     triggerButton={
-                      <Button variant="outline" className="w-full mt-4">
-                        View Strategy Details
+                      <Button 
+                        variant="default" 
+                        className="w-full mt-6 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                      >
+                        🔓 Unlock Strategy
                       </Button>
                     }
                   />
