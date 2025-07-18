@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle, BookOpen, Users, FileText, Clock } from "lucide-react";
 import { InteractiveFeatureModal } from "./InteractiveFeatureModal";
-import narLogo from "@/assets/nar-logo-correct.png";
+import narLogo from "@/assets/nar-official-logo.png";
 import realtorTech from "@/assets/realtor-technology.jpg";
 
 export function ComplianceSection() {
@@ -66,15 +66,14 @@ export function ComplianceSection() {
       <div className="container mx-auto px-4 relative">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-8 mb-8">
-            <img src={narLogo} alt="NAR National Association of REALTORS Logo" className="h-16 object-contain" />
-            <img src={narLogo} alt="NAR National Association of REALTORS Logo" className="h-16 object-contain" />
-          </div>
-          
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             <Shield className="mr-2 h-4 w-4" />
             NAR Regulation Safe & Compliant
           </Badge>
+          
+          <div className="flex justify-center mb-6">
+            <img src={narLogo} alt="NAR National Association of REALTORS Logo" className="h-20 object-contain" />
+          </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Built for <span className="text-primary">REALTORS®</span> by REALTORS®
