@@ -6,13 +6,9 @@ import { Star, TrendingUp, Users, Clock, Phone, Target, Calendar, Database } fro
 export function TestimonialsSection() {
   const usageExamples = [
     {
-      name: "Jennifer's Team",
-      title: "Enterprise Plan User",
-      location: "Dallas, TX",
-      avatar: "JT",
-      plan: "Enterprise",
+      plan: "Enterprise Plan",
       strategy: "Market Domination Strategy",
-      description: "How Jennifer's team uses their 5,000+ monthly calls to dominate 4 different markets simultaneously.",
+      description: "How to use 5,000+ monthly calls to dominate multiple markets simultaneously.",
       weeklyBreakdown: [
         {
           week: "Week 1: Market Domination Blitz",
@@ -60,20 +56,16 @@ export function TestimonialsSection() {
       ]
     },
     {
-      name: "Mike Rodriguez",
-      title: "Professional Plan User",
-      location: "Phoenix, AZ",
-      avatar: "MR",
-      plan: "Professional", 
+      plan: "Professional Plan",
       strategy: "Scaling Strategy",
-      description: "How Mike uses his 2,000 monthly calls to scale from solo agent to team leader.",
+      description: "How to use 2,000 monthly calls to scale from solo agent to team leader.",
       weeklyBreakdown: [
         {
           week: "Week 1: Multi-Listing Prospecting",
           calls: "500 calls",
           details: [
             "150 calls per new listing to surrounding areas",
-            "Hi, this is Mike's AI assistant. We have multiple new listings...",
+            "Hi, this is [Agent]'s AI assistant. We have multiple new listings...",
             "Targets: 100 contacts, 8-12 listing appointments"
           ]
         },
@@ -90,7 +82,7 @@ export function TestimonialsSection() {
           calls: "500 calls",
           details: [
             "Systematic calling of 500 homes in target area",
-            "Mike is expanding his services to your neighborhood...",
+            "[Agent] is expanding services to your neighborhood...",
             "Targets: 100 contacts, 5-8 potential listings"
           ]
         },
@@ -111,20 +103,16 @@ export function TestimonialsSection() {
       ]
     },
     {
-      name: "Sarah Chen",
-      title: "Starter Plan User",
-      location: "Tampa, FL", 
-      avatar: "SC",
-      plan: "Starter",
+      plan: "Starter Plan",
       strategy: "Foundation Building Strategy",
-      description: "How Sarah uses her 500 monthly calls to build a solid foundation as a new agent.",
+      description: "How to use 500 monthly calls to build a solid foundation as a new agent.",
       weeklyBreakdown: [
         {
           week: "Week 1: Circle Prospecting",
           calls: "125 calls",
           details: [
             "Calls neighbors around new listings",
-            "Hi, this is Sarah's AI assistant about recent activity on Oak Street...",
+            "Hi, this is [Agent]'s AI assistant about recent activity on Oak Street...",
             "Targets: 25 contacts, 3-5 seller leads"
           ]
         },
@@ -142,7 +130,7 @@ export function TestimonialsSection() {
           calls: "125 calls",
           details: [
             "Quarterly touch-base with previous clients",
-            "Hi, this is Sarah checking in. How are you enjoying your home?",
+            "Hi, this is [Agent] checking in. How are you enjoying your home?",
             "Targets: 5-8 referrals, 1-2 repeat clients"
           ]
         },
@@ -160,33 +148,6 @@ export function TestimonialsSection() {
         "Part-time realtors with limited time",
         "Agents afraid of cold calling",
         "Building consistent lead flow"
-      ]
-    },
-    {
-      name: "David Kim",
-      title: "ROI Calculator User",
-      location: "Seattle, WA",
-      avatar: "DK", 
-      plan: "Calculator",
-      strategy: "Strategic Investment Analysis",
-      description: "How David uses our ROI calculator to make data-driven decisions about his plan selection.",
-      calculatorInputs: [
-        "Average Commission: $4,000",
-        "Current Deals Per Month: 3", 
-        "Plan Selection: Professional ($997/mo)"
-      ],
-      calculations: [
-        "Current Monthly Income: $12,000",
-        "Plan Cost: $997/month",
-        "Expected Additional Deals: 4-8 per month",
-        "New Monthly Income: $28,000-44,000",
-        "Monthly ROI Increase: $15,003-31,003",
-        "ROI Percentage: 1,505-3,110%"
-      ],
-      breakEvenAnalysis: [
-        "Break even with just 1 extra deal every 4 months",
-        "Typical results show 4-8 extra deals per month", 
-        "That's a 133-267% increase in income"
       ]
     }
   ];
@@ -238,22 +199,12 @@ export function TestimonialsSection() {
         </div>
 
         {/* Usage Examples Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {usageExamples.map((example, index) => (
             <Card key={index} className="bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="flex items-center gap-4 mb-4">
-                  <Avatar className="w-12 h-12">
-                    <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-                      {example.avatar}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <div className="font-semibold">{example.name}</div>
-                    <div className="text-sm text-muted-foreground">{example.title}</div>
-                    <div className="text-xs text-muted-foreground">{example.location}</div>
-                  </div>
-                  <Badge variant="secondary" className="text-xs">
+                <div className="flex items-center justify-between mb-4">
+                  <Badge variant="secondary" className="text-sm">
                     {example.plan}
                   </Badge>
                 </div>
@@ -285,7 +236,7 @@ export function TestimonialsSection() {
                 {example.advantages && (
                   <div className="bg-success/5 border border-success/20 rounded-lg p-3">
                     <h4 className="font-semibold text-success mb-2 text-sm">Enterprise Advantages:</h4>
-                    <div className="grid grid-cols-2 gap-1">
+                    <div className="grid grid-cols-1 gap-1">
                       {example.advantages.map((advantage, idx) => (
                         <div key={idx} className="text-xs flex items-center gap-1">
                           <div className="w-1 h-1 bg-success rounded-full"></div>
@@ -315,29 +266,6 @@ export function TestimonialsSection() {
                         • {item}
                       </div>
                     ))}
-                  </div>
-                )}
-
-                {example.calculatorInputs && (
-                  <div className="space-y-2">
-                    <div className="bg-muted/30 rounded-lg p-3">
-                      <h4 className="font-semibold text-sm mb-2">Calculator Inputs:</h4>
-                      {example.calculatorInputs.map((input, idx) => (
-                        <div key={idx} className="text-xs text-muted-foreground">• {input}</div>
-                      ))}
-                    </div>
-                    <div className="bg-success/5 border border-success/20 rounded-lg p-3">
-                      <h4 className="font-semibold text-success text-sm mb-2">Calculations:</h4>
-                      {example.calculations.map((calc, idx) => (
-                        <div key={idx} className="text-xs text-muted-foreground">• {calc}</div>
-                      ))}
-                    </div>
-                    <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                      <h4 className="font-semibold text-primary text-sm mb-2">Break-Even Analysis:</h4>
-                      {example.breakEvenAnalysis.map((analysis, idx) => (
-                        <div key={idx} className="text-xs text-muted-foreground">• {analysis}</div>
-                      ))}
-                    </div>
                   </div>
                 )}
               </CardContent>
