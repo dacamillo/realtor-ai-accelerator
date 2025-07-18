@@ -77,6 +77,7 @@ export default {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-cta': 'var(--gradient-cta)',
 				'gradient-card': 'var(--gradient-card)',
+				'gradient-subtle': 'var(--gradient-subtle)',
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
@@ -122,10 +123,10 @@ export default {
 				},
 				'glow-pulse': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px hsl(214 100% 60% / 0.3)'
+						boxShadow: '0 0 20px hsl(216 76% 40% / 0.3)'
 					},
 					'50%': {
-						boxShadow: '0 0 30px hsl(214 100% 60% / 0.5)'
+						boxShadow: '0 0 30px hsl(216 76% 40% / 0.5)'
 					}
 				}
 			},
