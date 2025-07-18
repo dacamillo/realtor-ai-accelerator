@@ -29,7 +29,7 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-soft">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-primary/20 shadow-soft">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -37,7 +37,7 @@ export function Header() {
             <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
               <Phone className="h-5 w-5 text-white" />
             </div>
-            <span className="font-bold text-lg text-foreground">Smart Solution Agency</span>
+            <span className="font-bold text-lg text-white">Smart Solution Agency</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -46,7 +46,7 @@ export function Header() {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.sectionId)}
-                className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                className="text-white/70 hover:text-white transition-colors cursor-pointer"
               >
                 {item.label}
               </button>
@@ -69,27 +69,27 @@ export function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-border py-4">
+          <div className="md:hidden bg-primary border-t border-primary/20 py-4">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="text-muted-foreground hover:text-foreground transition-colors py-2 text-left cursor-pointer"
+                  className="text-white/70 hover:text-white transition-colors py-2 text-left cursor-pointer"
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="flex flex-col gap-2 pt-4 border-t border-border">
+              <div className="flex flex-col gap-2 pt-4 border-t border-primary/20">
                 <Button variant="ghost" size="sm" onClick={scrollToCalendar}>
                   Book Call
                 </Button>
