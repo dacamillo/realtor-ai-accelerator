@@ -11,6 +11,7 @@ export function PricingSection() {
       originalPrice: "$829",
       description: "Perfect for new agents & part-time realtors",
       popular: false,
+      paymentLink: "https://link.fastpaydirect.com/payment-link/687ab496d6ab80e70fe6b16a",
       features: [
         "Complete Lead Connector CRM",
         "AI Voice Receptionist (inbound)",
@@ -30,6 +31,7 @@ export function PricingSection() {
       originalPrice: "$1,662",
       description: "Perfect for established agents & small teams",
       popular: true,
+      paymentLink: "https://link.fastpaydirect.com/payment-link/687ab4b3ddc6a63a70c55e03",
       features: [
         "Everything in Starter",
         "2,000 outbound AI calls/month",
@@ -49,6 +51,7 @@ export function PricingSection() {
       originalPrice: "$3,328",
       description: "Perfect for top producers & team leaders",
       popular: false,
+      paymentLink: "https://link.fastpaydirect.com/payment-link/687ab4c4ddc6a62cc0c55e05",
       features: [
         "Everything in Professional",
         "5,000+ outbound AI calls/month",
@@ -65,7 +68,7 @@ export function PricingSection() {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="pricing-section" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 text-accent border-accent">
@@ -132,11 +135,20 @@ export function PricingSection() {
                 <Button 
                   variant={plan.popular ? "cta" : "default"} 
                   size="lg" 
-                  className="w-full group"
+                  className="w-full group mb-2"
+                  onClick={() => window.open(plan.paymentLink, '_blank')}
                 >
                   {plan.popular && <Zap className="w-4 h-4 mr-2" />}
                   Start {plan.name} Plan
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Book a Call First
                 </Button>
               </CardContent>
             </Card>

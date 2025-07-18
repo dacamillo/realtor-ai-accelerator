@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, MessageSquare, Users, TrendingUp } from "lucide-react";
+import { ArrowRight, Phone, MessageSquare, Users, TrendingUp, Calendar, Zap } from "lucide-react";
+import { InteractiveFeatureModal } from "./InteractiveFeatureModal";
 import heroImage from "@/assets/hero-image.jpg";
 
 export function HeroSection() {
+  const scrollToPricing = () => {
+    document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToCalendar = () => {
+    document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen bg-gradient-hero overflow-hidden">
       {/* Background decoration */}
@@ -50,12 +59,39 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="group">
-                Start Free Trial
+              <Button variant="hero" size="lg" className="group" onClick={scrollToPricing}>
+                <Zap className="mr-2 h-5 w-5" />
+                Get Started Now
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                Watch Demo
+              
+              <InteractiveFeatureModal
+                trigger={
+                  <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+                    Watch Demo
+                  </Button>
+                }
+                title="Complete AI & CRM Suite Demo"
+                description="See how our integrated system replaces 5-8 separate tools and delivers 24/7 lead capture, qualification, and conversion. Just one extra deal per month pays for the entire system."
+                benefits={[
+                  "24/7 AI Voice Receptionist - never miss a call",
+                  "Automated outbound calling - 500+ calls per hour",
+                  "Instant missed call text back - 94% lead capture rate",
+                  "AI social media bots across all platforms",
+                  "Complete white-labeled CRM system",
+                  "Advanced automation workflows"
+                ]}
+                stats={[
+                  { label: "Average ROI Increase", value: "847%" },
+                  { label: "Time Saved Monthly", value: "40+ hrs" },
+                  { label: "Lead Conversion Rate", value: "23%" },
+                  { label: "Extra Deals Per Month", value: "2-25" }
+                ]}
+              />
+              
+              <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20" onClick={scrollToCalendar}>
+                <Calendar className="mr-2 h-5 w-5" />
+                Book Free Call
               </Button>
             </div>
 
