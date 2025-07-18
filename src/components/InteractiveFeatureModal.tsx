@@ -76,6 +76,12 @@ export function InteractiveFeatureModal({ trigger, title, description, benefits,
             </div>
           </div>
 
+          <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
+            <div className="text-xs text-center font-medium text-primary">
+              ✅ Setup form sent within minutes of payment • Live in 24-48 hours
+            </div>
+          </div>
+
           <div className="flex gap-3">
             <Button 
               variant="cta" 
@@ -83,7 +89,7 @@ export function InteractiveFeatureModal({ trigger, title, description, benefits,
               onClick={scrollToPricing}
             >
               <CreditCard className="w-4 h-4 mr-2" />
-              See Pricing Plans
+              Get Started Now
               <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
             </Button>
             <Button 

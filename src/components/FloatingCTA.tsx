@@ -49,8 +49,11 @@ export function FloatingCTA() {
       
       <div className="mb-3">
         <div className="font-bold text-sm mb-1">🔥 Limited Time Offer</div>
-        <div className="text-xs text-muted-foreground">
+        <div className="text-xs text-muted-foreground mb-1">
           Save 40% on all plans during our beta launch
+        </div>
+        <div className="text-xs text-primary font-medium">
+          ✅ Setup form sent within minutes
         </div>
       </div>
       

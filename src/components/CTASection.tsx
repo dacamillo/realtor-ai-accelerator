@@ -11,6 +11,10 @@ import {
 } from "lucide-react";
 
 export function CTASection() {
+  const scrollToPricing = () => {
+    document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const guarantees = [
     {
       icon: Clock,
@@ -68,15 +72,21 @@ export function CTASection() {
           </div>
 
           {/* Main CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button variant="hero" size="lg" className="group text-xl px-10 py-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button variant="hero" size="lg" className="group text-xl px-10 py-6" onClick={scrollToPricing}>
               <Zap className="w-5 h-5 mr-2" />
               Start Capturing Leads Tonight
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-xl px-10 py-6">
+            <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-xl px-10 py-6" onClick={() => document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' })}>
               Schedule Demo Call
             </Button>
+          </div>
+          
+          <div className="bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-lg p-4 mb-8">
+            <div className="text-sm font-medium text-white">
+              ✅ Setup form automatically sent within minutes of payment • Live in 24-48 hours
+            </div>
           </div>
 
           {/* Guarantees */}
@@ -115,7 +125,7 @@ export function CTASection() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-success" />
-                  <span>Start capturing leads within 24 hours</span>
+                  <span>Setup form sent within minutes of payment</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-success" />

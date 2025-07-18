@@ -142,6 +142,11 @@ export function PricingSection() {
                   Start {plan.name} Plan
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
+                
+                <div className="text-xs text-center text-muted-foreground mb-2 px-2">
+                  ✅ Setup form sent within minutes of payment
+                </div>
+                
                 <Button 
                   variant="outline" 
                   size="sm" 
