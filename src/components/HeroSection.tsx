@@ -40,19 +40,19 @@ export function HeroSection() {
             {/* Key Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary-glow">847%</div>
+                <div className="text-2xl font-bold text-white">847%</div>
                 <div className="text-sm text-white/80">ROI Increase</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary-glow">40+</div>
+                <div className="text-2xl font-bold text-white">40+</div>
                 <div className="text-sm text-white/80">Hours Saved</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary-glow">23%</div>
+                <div className="text-2xl font-bold text-white">23%</div>
                 <div className="text-sm text-white/80">Conversion Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary-glow">3.2x</div>
+                <div className="text-2xl font-bold text-white">3.2x</div>
                 <div className="text-sm text-white/80">More Deals</div>
               </div>
             </div>

@@ -55,10 +55,10 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm" onClick={scrollToCalendar}>
+            <Button variant="cta" size="sm" onClick={scrollToCalendar}>
               Book Call
             </Button>
-            <Button variant="cta" size="sm" onClick={scrollToPricing}>
+            <Button variant="hero" size="sm" onClick={scrollToPricing}>
               Get Started
             </Button>
           </div>
@@ -90,10 +90,10 @@ export function Header() {
                 </button>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-primary/20">
-                <Button variant="ghost" size="sm" onClick={scrollToCalendar}>
+                <Button variant="cta" size="sm" onClick={scrollToCalendar}>
                   Book Call
                 </Button>
-                <Button variant="cta" size="sm" onClick={scrollToPricing}>
+                <Button variant="hero" size="sm" onClick={scrollToPricing}>
                   Get Started
                 </Button>
               </div>

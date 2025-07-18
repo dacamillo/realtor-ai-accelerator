@@ -1,154 +1,27 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star, TrendingUp, Users, Clock, Phone, Target, Calendar, Database } from "lucide-react";
+import { Phone, Users, Target } from "lucide-react";
+import { UsageExamplesModal } from "./UsageExamplesModal";
 
 export function TestimonialsSection() {
   const usageExamples = [
     {
-      plan: "Enterprise Plan",
-      strategy: "Market Domination Strategy",
-      description: "How to use 5,000+ monthly calls to dominate multiple markets simultaneously.",
-      weeklyBreakdown: [
-        {
-          week: "Week 1: Market Domination Blitz",
-          calls: "1,250 calls",
-          details: [
-            "150 calls per listing (8 new listings = 1,200 calls)",
-            "50 calls to VIP client list for exclusive previews",
-            "Targets: 250 contacts, 25-35 listing appointments"
-          ]
-        },
-        {
-          week: "Week 2: Event Marketing Blitz", 
-          calls: "1,250 calls",
-          details: [
-            "300 calls per open house (3 houses = 900 calls)",
-            "200 calls for investor seminar, 150 for buyer workshop",
-            "Targets: 75-100 total event attendees"
-          ]
-        },
-        {
-          week: "Week 3: Geographic Expansion",
-          calls: "1,250 calls", 
-          details: [
-            "625 calls per luxury neighborhood (2 areas)",
-            "Focus on high-value properties ($500K+)",
-            "Targets: 200 contacts, 15-25 luxury consultations"
-          ]
-        },
-        {
-          week: "Week 4: Database & Referral Maximization",
-          calls: "1,250 calls",
-          details: [
-            "400 calls to past clients, 400 to sphere, 450 to old leads",
-            "Targets: 200 contacts, 25-35 appointments, 15-25 referrals"
-          ]
-        }
-      ],
-      advantages: [
-        "Multi-agent CRM management",
-        "White-label team branding", 
-        "Dedicated account manager",
-        "Custom voice training for team",
-        "Advanced analytics & reporting",
-        "24/7 priority support"
-      ]
+      plan: "Enterprise",
+      title: "Market Domination Strategy",
+      description: "5,000+ monthly calls to dominate multiple markets simultaneously",
+      color: "primary"
     },
     {
-      plan: "Professional Plan",
-      strategy: "Scaling Strategy",
-      description: "How to use 2,000 monthly calls to scale from solo agent to team leader.",
-      weeklyBreakdown: [
-        {
-          week: "Week 1: Multi-Listing Prospecting",
-          calls: "500 calls",
-          details: [
-            "150 calls per new listing to surrounding areas",
-            "Hi, this is [Agent]'s AI assistant. We have multiple new listings...",
-            "Targets: 100 contacts, 8-12 listing appointments"
-          ]
-        },
-        {
-          week: "Week 2: Open House + Market Events",
-          calls: "500 calls",
-          details: [
-            "200 calls per open house + 100 for market seminar", 
-            "Targets: 30-40 open house attendees, 15-20 seminar attendees"
-          ]
-        },
-        {
-          week: "Week 3: Geographic Farming Expansion", 
-          calls: "500 calls",
-          details: [
-            "Systematic calling of 500 homes in target area",
-            "[Agent] is expanding services to your neighborhood...",
-            "Targets: 100 contacts, 5-8 potential listings"
-          ]
-        },
-        {
-          week: "Week 4: Database Maximization",
-          calls: "500 calls",
-          details: [
-            "Reactivating old leads and sphere of influence",
-            "Targets: 80 contacts, 8-12 appointments, 4-6 referrals"
-          ]
-        }
-      ],
-      scalingFeatures: [
-        "4x more calls than Starter plan",
-        "Advanced lead scoring and qualification",
-        "Priority support with custom voice training",
-        "Advanced automation workflows"
-      ]
+      plan: "Professional", 
+      title: "Scaling Strategy",
+      description: "2,000 monthly calls to scale from solo agent to team leader",
+      color: "secondary"
     },
     {
-      plan: "Starter Plan",
-      strategy: "Foundation Building Strategy",
-      description: "How to use 500 monthly calls to build a solid foundation as a new agent.",
-      weeklyBreakdown: [
-        {
-          week: "Week 1: Circle Prospecting",
-          calls: "125 calls",
-          details: [
-            "Calls neighbors around new listings",
-            "Hi, this is [Agent]'s AI assistant about recent activity on Oak Street...",
-            "Targets: 25 contacts, 3-5 seller leads"
-          ]
-        },
-        {
-          week: "Week 2: Open House Invitations",
-          calls: "125 calls", 
-          details: [
-            "Invites neighborhood to Saturday open house",
-            "We're hosting an open house this Saturday at 456 Elm Street...",
-            "Targets: 15-20 attendees, 2-3 buyer leads"
-          ]
-        },
-        {
-          week: "Week 3: Past Client Check-ins",
-          calls: "125 calls",
-          details: [
-            "Quarterly touch-base with previous clients",
-            "Hi, this is [Agent] checking in. How are you enjoying your home?",
-            "Targets: 5-8 referrals, 1-2 repeat clients"
-          ]
-        },
-        {
-          week: "Week 4: Lead Nurturing", 
-          calls: "125 calls",
-          details: [
-            "Follows up on website inquiries and cold leads",
-            "Targets: 3-5 listing appointments, 2-3 buyer consultations"
-          ]
-        }
-      ],
-      perfectFor: [
-        "New agents building their business",
-        "Part-time realtors with limited time",
-        "Agents afraid of cold calling",
-        "Building consistent lead flow"
-      ]
+      plan: "Starter",
+      title: "Foundation Building Strategy", 
+      description: "500 monthly calls to build a solid foundation as a new agent",
+      color: "accent"
     }
   ];
 
@@ -201,75 +74,24 @@ export function TestimonialsSection() {
         {/* Usage Examples Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {usageExamples.map((example, index) => (
-            <Card key={index} className="bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-4">
-                  <Badge variant="secondary" className="text-sm">
-                    {example.plan}
-                  </Badge>
-                </div>
-                <CardTitle className="text-lg">{example.strategy}</CardTitle>
-                <p className="text-sm text-muted-foreground">{example.description}</p>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                {example.weeklyBreakdown && (
-                  <div className="space-y-3">
-                    {example.weeklyBreakdown.map((week, idx) => (
-                      <div key={idx} className="bg-muted/30 rounded-lg p-3">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-semibold text-sm">{week.week}</h4>
-                          <Badge variant="outline" className="text-xs">{week.calls}</Badge>
-                        </div>
-                        <ul className="space-y-1">
-                          {week.details.map((detail, detailIdx) => (
-                            <li key={detailIdx} className="text-xs text-muted-foreground">
-                              • {detail}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {example.advantages && (
-                  <div className="bg-success/5 border border-success/20 rounded-lg p-3">
-                    <h4 className="font-semibold text-success mb-2 text-sm">Enterprise Advantages:</h4>
-                    <div className="grid grid-cols-1 gap-1">
-                      {example.advantages.map((advantage, idx) => (
-                        <div key={idx} className="text-xs flex items-center gap-1">
-                          <div className="w-1 h-1 bg-success rounded-full"></div>
-                          {advantage}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {example.scalingFeatures && (
-                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                    <h4 className="font-semibold text-primary mb-2 text-sm">Scaling Power:</h4>
-                    {example.scalingFeatures.map((feature, idx) => (
-                      <div key={idx} className="text-xs text-muted-foreground">
-                        • {feature}
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {example.perfectFor && (
-                  <div className="bg-accent/5 border border-accent/20 rounded-lg p-3">
-                    <h4 className="font-semibold text-accent mb-2 text-sm">Perfect For:</h4>
-                    {example.perfectFor.map((item, idx) => (
-                      <div key={idx} className="text-xs text-muted-foreground">
-                        • {item}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+            <div key={index} className="bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 rounded-lg p-6">
+              <div className="text-center space-y-4">
+                <Badge variant="secondary" className="text-sm">
+                  {example.plan} Plan
+                </Badge>
+                <h3 className="text-xl font-bold">{example.title}</h3>
+                <p className="text-muted-foreground">{example.description}</p>
+                
+                <UsageExamplesModal
+                  plan={example.plan}
+                  triggerButton={
+                    <Button variant="outline" className="w-full">
+                      View Strategy Details
+                    </Button>
+                  }
+                />
+              </div>
+            </div>
           ))}
         </div>
 
