@@ -7,10 +7,10 @@ export function ProblemSection() {
   const problems = [
     {
       icon: DollarSign,
-      title: "Expensive, Disconnected Tools",
-      description: "Paying $550-1,650/month for CRM, lead gen, chatbots, and missed call services that don't work together.",
+      title: "Expensive, Disconnected Real Estate Tools",
+      description: "Paying $550-1,650/month for real estate CRM, lead gen, IDX, chatbots, and missed call services that don't work together.",
       cost: "$550-1,650/mo",
-      detailedDescription: "Most realtors juggle 5-8 separate tools that don't communicate with each other, leading to data silos, manual work, and missed opportunities. You're paying premium prices for inferior, disconnected solutions.",
+      detailedDescription: "Most REALTORS® juggle 5-8 separate real estate tools (CRM, IDX, lead capture, chatbots, calling systems) that don't communicate with each other, leading to data silos, manual work, and missed opportunities. You're paying premium prices for inferior, disconnected solutions.",
       painPoints: [
         "CRM that doesn't sync with your lead sources",
         "Separate chatbot systems that lose conversation history", 
@@ -96,11 +96,11 @@ export function ProblemSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            The Hidden Cost of <span className="text-destructive">Outdated Systems</span>
+            The Hidden Cost of <span className="text-destructive">Outdated Real Estate Systems</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Most realtors lose 60-80% of potential leads due to slow response times, 
-            disconnected systems, and manual processes. Here's what it's really costing you:
+            Most REALTORS® lose 60-80% of potential leads due to slow response times, 
+            disconnected systems, and manual processes. Here's what it's really costing your real estate business:
           </p>
         </div>
 

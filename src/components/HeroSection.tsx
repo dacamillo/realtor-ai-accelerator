@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MessageSquare, Users, TrendingUp, Calendar, Zap } from "lucide-react";
 import { InteractiveFeatureModal } from "./InteractiveFeatureModal";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/realtor-hero.jpg";
 
 export function HeroSection() {
   const scrollToPricing = () => {
@@ -28,12 +28,12 @@ export function HeroSection() {
               
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Never Miss Another
-                <span className="block text-primary-glow">Lead Again</span>
+                <span className="block text-primary-glow">Real Estate Lead</span>
               </h1>
               
               <p className="text-xl text-white/90 leading-relaxed max-w-xl">
-                The complete AI + CRM solution that replaces 5-8 separate tools. 
-                Capture, qualify, and convert more leads while saving 40+ hours per month.
+                The only NAR-compliant AI + CRM solution built specifically for REALTORS®. 
+                Capture, qualify, and convert more leads while staying 100% compliant.
               </p>
             </div>
 
@@ -102,7 +102,7 @@ export function HeroSection() {
                   <div key={i} className="w-8 h-8 bg-white/20 rounded-full border-2 border-white/30" />
                 ))}
               </div>
-              <span className="text-sm">Join 500+ realtors already using Smart Solution</span>
+              <span className="text-sm">Join 500+ REALTORS® growing with Smart Solution</span>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ export function HeroSection() {
             <div className="relative">
               <img 
                 src={heroImage} 
-                alt="Smart Solution Agency AI CRM Dashboard" 
+                alt="REALTOR using Smart Solution AI CRM system in modern real estate office" 
                 className="w-full h-auto rounded-xl shadow-strong"
               />
               
