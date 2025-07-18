@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle, BookOpen, Users, FileText, Clock } from "lucide-react";
 import { InteractiveFeatureModal } from "./InteractiveFeatureModal";
-import narLogo from "@/assets/nar-logo.png";
+import narLogo from "@/assets/nar-official-logo.png";
 import realtorLogo from "@/assets/realtor-logo.png";
 import realtorTech from "@/assets/realtor-technology.jpg";
 
