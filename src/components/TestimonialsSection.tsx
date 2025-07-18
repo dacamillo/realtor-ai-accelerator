@@ -8,23 +8,44 @@ export function TestimonialsSection() {
     {
       plan: "Enterprise",
       title: "Market Domination Blueprint",
-      description: "The secret system top producers use to control entire markets...",
+      description: "How 20+ top producers control entire markets using our system...",
       highlight: "5,000+ AI calls/month",
-      urgent: "🚀 Most Popular"
+      urgent: "🚀 Most Popular",
+      useCases: [
+        "Circle Prospect 8+ New Listings Weekly",
+        "Dominate Multiple Luxury Markets",
+        "Generate 25+ Listing Appointments/Week",
+        "Scale Team to 6-Figure Monthly Production",
+        "Run 3+ Open Houses Simultaneously"
+      ]
     },
     {
       plan: "Professional", 
       title: "Team Leader Transformation",
-      description: "How solo agents build million-dollar teams in 90 days...",
+      description: "The 90-day roadmap from solo agent to team leader...",
       highlight: "2,000 AI calls/month",
-      urgent: "⚡ Best Value"
+      urgent: "⚡ Best Value",
+      useCases: [
+        "Scale Beyond 50 Transactions/Year",
+        "Build Consistent Listing Pipeline",
+        "Run Weekly Market Events",
+        "Geographic Farm Expansion",
+        "Database Reactivation System"
+      ]
     },
     {
       plan: "Starter",
       title: "Rookie to Rockstar Formula", 
-      description: "The exact playbook new agents use to close 10+ deals monthly...",
+      description: "The exact system new agents use to close 10+ deals monthly...",
       highlight: "500 AI calls/month",
-      urgent: "🎯 Perfect Start"
+      urgent: "🎯 Perfect Start",
+      useCases: [
+        "Circle Prospect Every New Listing",
+        "Host Successful Open Houses",
+        "Nurture Past Client Relationships",
+        "Convert Cold Leads to Appointments",
+        "Build Foundation for Growth"
+      ]
     }
   ];
 
@@ -81,41 +102,55 @@ export function TestimonialsSection() {
             <p className="text-muted-foreground">Discover the exact strategies our top performers use daily</p>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-3 gap-8">
             {usageExamples.map((example, index) => (
-              <div key={index} className="relative bg-gradient-to-br from-background via-background/95 to-primary/5 border-2 border-primary/20 shadow-glow hover:shadow-strong hover:border-primary/40 transition-all duration-300 rounded-xl p-6 group overflow-hidden">
+              <div key={index} className="relative bg-gradient-to-br from-background via-background/95 to-primary/5 border-2 border-primary/20 shadow-glow hover:shadow-strong hover:border-primary/40 transition-all duration-300 rounded-xl p-8 group overflow-hidden min-h-[480px]">
                 {/* Urgent Badge */}
-                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg z-10">
                   {example.urgent}
                 </div>
                 
                 {/* Glowing effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                 
-                <div className="relative text-center space-y-4">
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="text-xs font-bold text-primary border-primary bg-primary/10">
+                <div className="relative text-center space-y-6 h-full flex flex-col">
+                  <div className="space-y-3">
+                    <Badge variant="outline" className="text-sm font-bold text-primary border-primary bg-primary/10 px-3 py-1">
                       {example.plan} Plan
                     </Badge>
-                    <div className="text-lg font-bold text-primary">{example.highlight}</div>
+                    <div className="text-xl font-bold text-primary">{example.highlight}</div>
                   </div>
                   
-                  <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  <h4 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {example.title}
                   </h4>
                   
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-base leading-relaxed">
                     {example.description}
                   </p>
+                  
+                  {/* Use Cases Preview */}
+                  <div className="flex-1 text-left space-y-3">
+                    <h5 className="text-sm font-semibold text-center text-muted-foreground mb-4">What You'll Learn:</h5>
+                    <div className="space-y-2">
+                      {example.useCases.map((useCase, idx) => (
+                        <div key={idx} className="flex items-start gap-2 text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                          <span className="text-muted-foreground">{useCase}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                   
                   <UsageExamplesModal
                     plan={example.plan}
                     triggerButton={
                       <Button 
                         variant="default" 
-                        className="w-full mt-6 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105"
+                        size="lg"
+                        className="w-full mt-auto bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 py-3"
                       >
-                        🔓 Unlock Strategy
+                        🔓 Unlock Complete Strategy
                       </Button>
                     }
                   />
