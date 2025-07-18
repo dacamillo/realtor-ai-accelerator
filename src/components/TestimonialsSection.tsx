@@ -71,28 +71,35 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Usage Examples Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {usageExamples.map((example, index) => (
-            <div key={index} className="bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 rounded-lg p-6">
-              <div className="text-center space-y-4">
-                <Badge variant="secondary" className="text-sm">
-                  {example.plan} Plan
-                </Badge>
-                <h3 className="text-xl font-bold">{example.title}</h3>
-                <p className="text-muted-foreground">{example.description}</p>
-                
-                <UsageExamplesModal
-                  plan={example.plan}
-                  triggerButton={
-                    <Button variant="outline" className="w-full">
-                      View Strategy Details
-                    </Button>
-                  }
-                />
+        {/* Usage Examples Section */}
+        <div className="bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/10 rounded-2xl p-8 mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">Implementation Strategies</h3>
+            <p className="text-muted-foreground">Choose your path to success with our proven frameworks</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-3 gap-6">
+            {usageExamples.map((example, index) => (
+              <div key={index} className="bg-background/80 backdrop-blur-sm border border-border/50 shadow-soft hover:shadow-strong transition-all duration-300 rounded-xl p-6">
+                <div className="text-center space-y-4">
+                  <Badge variant="secondary" className="text-sm font-medium">
+                    {example.plan} Plan
+                  </Badge>
+                  <h4 className="text-xl font-bold">{example.title}</h4>
+                  <p className="text-muted-foreground text-sm">{example.description}</p>
+                  
+                  <UsageExamplesModal
+                    plan={example.plan}
+                    triggerButton={
+                      <Button variant="outline" className="w-full mt-4">
+                        View Strategy Details
+                      </Button>
+                    }
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}
