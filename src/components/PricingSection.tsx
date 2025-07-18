@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Star, ArrowRight, Zap } from "lucide-react";
+import { CheckCircle, Star, ArrowRight, Zap, Calendar, TrendingUp, Calculator, Shield } from "lucide-react";
+import { MonthlyActionPlanPopup, SuccessStoriesPopup, ROICalculatorPopup, ComplianceDetailsPopup } from "./PricingPopups";
 
 export function PricingSection() {
   const plans = [
@@ -130,6 +131,47 @@ export function PricingSection() {
 
                 <div className="bg-muted/50 rounded-lg p-3">
                   <div className="text-xs text-muted-foreground text-center">{plan.savings}</div>
+                </div>
+
+                {/* Interactive Pop-up Buttons */}
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  <MonthlyActionPlanPopup 
+                    plan={plan.name}
+                    triggerButton={
+                      <Button variant="outline" size="sm" className="w-full text-xs">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        Monthly Plan
+                      </Button>
+                    }
+                  />
+                  
+                  <SuccessStoriesPopup 
+                    plan={plan.name}
+                    triggerButton={
+                      <Button variant="outline" size="sm" className="w-full text-xs">
+                        <Star className="w-3 h-3 mr-1" />
+                        Success Stories
+                      </Button>
+                    }
+                  />
+                  
+                  <ROICalculatorPopup 
+                    triggerButton={
+                      <Button variant="outline" size="sm" className="w-full text-xs">
+                        <Calculator className="w-3 h-3 mr-1" />
+                        Calculate ROI
+                      </Button>
+                    }
+                  />
+                  
+                  <ComplianceDetailsPopup 
+                    triggerButton={
+                      <Button variant="outline" size="sm" className="w-full text-xs">
+                        <Shield className="w-3 h-3 mr-1" />
+                        Compliance
+                      </Button>
+                    }
+                  />
                 </div>
 
                 <Button 
