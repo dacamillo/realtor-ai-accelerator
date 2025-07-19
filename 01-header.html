@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div class="container flex h-16 items-center">
+            <div class="mr-4 hidden md:flex">
+                <a class="mr-6 flex items-center space-x-2" href="/">
+                    <img src="https://lovable-uploads/nar-logo-correct.png" alt="Smart Solution Agency" class="h-8 w-auto">
+                    <span class="hidden font-bold sm:inline-block text-xl">Smart Solution Agency</span>
+                </a>
+            </div>
+            <div class="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+                <nav class="flex items-center space-x-6 text-sm font-medium">
+                    <a href="#features" class="transition-colors hover:text-foreground/80 text-foreground/60">Features</a>
+                    <a href="#pricing" class="transition-colors hover:text-foreground/80 text-foreground/60">Pricing</a>
+                    <a href="#testimonials" class="transition-colors hover:text-foreground/80 text-foreground/60">Testimonials</a>
+                    <a href="#contact" class="transition-colors hover:text-foreground/80 text-foreground/60">Contact</a>
+                </nav>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 ml-4">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
