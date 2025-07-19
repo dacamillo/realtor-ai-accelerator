@@ -32,9 +32,14 @@ export function HeroSection() {
               </h1>
               
               <p className="text-xl text-white/90 leading-relaxed max-w-xl">
-                The only NAR-compliant AI + CRM solution built specifically for REALTORS®. 
+                The only <span className="font-semibold text-white">NAR-compliant</span> AI + CRM solution built specifically for REALTORS®. 
                 Capture, qualify, and convert more leads while staying 100% compliant.
               </p>
+              
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm border border-white/20">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-white/90">✓ NAR Article 12 Compliant</span>
+              </div>
             </div>
 
             {/* Key Stats */}

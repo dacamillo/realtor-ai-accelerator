@@ -9,7 +9,10 @@ import {
   Zap, 
   BarChart3,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Shield,
+  FileText,
+  BookOpen
 } from "lucide-react";
 import { InteractiveFeatureModal } from "./InteractiveFeatureModal";
 
@@ -147,6 +150,199 @@ export function SolutionSection() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* NAR Compliance Section */}
+        <div className="bg-gradient-subtle border border-primary/20 rounded-xl p-8 mb-16">
+          <div className="text-center mb-8">
+            <Badge variant="secondary" className="mb-4 px-4 py-2">
+              <Shield className="mr-2 h-4 w-4" />
+              NAR Regulation Safe & Compliant
+            </Badge>
+            
+            <h3 className="text-2xl font-bold mb-4">
+              Built for <span className="text-primary">REALTORS®</span> by REALTORS®
+            </h3>
+            
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Our AI system is specifically designed for real estate professionals with full NAR compliance, 
+              Fair Housing standards, and TCPA regulations built-in.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <Card className="bg-background/50 border-primary/20">
+              <CardHeader className="text-center pb-3">
+                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Shield className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">NAR Code Compliant</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <p className="text-muted-foreground text-sm">Fully compliant with Article 12: Technology Standards and Data Protection</p>
+                <InteractiveFeatureModal
+                  trigger={
+                    <Button variant="outline" size="sm" className="w-full">
+                      View Details
+                    </Button>
+                  }
+                  title="NAR Code Compliant"
+                  description="Learn how our system ensures NAR code compliance for your real estate business."
+                  benefits={[
+                    "Transparent AI disclosure in all communications",
+                    "Secure data handling per NAR guidelines", 
+                    "Consumer consent protocols built-in",
+                    "Professional representation standards maintained"
+                  ]}
+                  stats={[
+                    { label: "Compliance Level", value: "100%" },
+                    { label: "Updates", value: "Automatic" },
+                    { label: "Violations", value: "0" },
+                    { label: "Peace of Mind", value: "Guaranteed" }
+                  ]}
+                />
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background/50 border-primary/20">
+              <CardHeader className="text-center pb-3">
+                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <FileText className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">TCPA Compliant</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <p className="text-muted-foreground text-sm">Built-in consent management and call/text compliance</p>
+                <InteractiveFeatureModal
+                  trigger={
+                    <Button variant="outline" size="sm" className="w-full">
+                      View Details
+                    </Button>
+                  }
+                  title="TCPA Compliant"
+                  description="Learn how our system ensures TCPA compliance for your real estate business."
+                  benefits={[
+                    "Automatic consent tracking and documentation",
+                    "Opt-out mechanisms in every communication",
+                    "Call time restrictions and DNC list compliance",
+                    "Written consent required for auto-dialing"
+                  ]}
+                  stats={[
+                    { label: "Compliance Level", value: "100%" },
+                    { label: "Updates", value: "Automatic" },
+                    { label: "Violations", value: "0" },
+                    { label: "Peace of Mind", value: "Guaranteed" }
+                  ]}
+                />
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background/50 border-primary/20">
+              <CardHeader className="text-center pb-3">
+                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <BookOpen className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Fair Housing Compliant</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <p className="text-muted-foreground text-sm">AI trained to avoid discriminatory language and practices</p>
+                <InteractiveFeatureModal
+                  trigger={
+                    <Button variant="outline" size="sm" className="w-full">
+                      View Details
+                    </Button>
+                  }
+                  title="Fair Housing Compliant"
+                  description="Learn how our system ensures fair housing compliance for your real estate business."
+                  benefits={[
+                    "Fair housing law compliance in all communications",
+                    "No discriminatory language or targeting",
+                    "Equal service standards for all prospects",
+                    "Regular compliance training for AI systems"
+                  ]}
+                  stats={[
+                    { label: "Compliance Level", value: "100%" },
+                    { label: "Updates", value: "Automatic" },
+                    { label: "Violations", value: "0" },
+                    { label: "Peace of Mind", value: "Guaranteed" }
+                  ]}
+                />
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background/50 border-primary/20">
+              <CardHeader className="text-center pb-3">
+                <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Broker Oversight Ready</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <p className="text-muted-foreground text-sm">Full transparency and control for brokers and compliance officers</p>
+                <InteractiveFeatureModal
+                  trigger={
+                    <Button variant="outline" size="sm" className="w-full">
+                      View Details
+                    </Button>
+                  }
+                  title="Broker Oversight Ready"
+                  description="Learn how our system provides broker oversight for your real estate business."
+                  benefits={[
+                    "Complete audit trails for all communications",
+                    "Broker dashboard with full oversight",
+                    "Customizable compliance rules and restrictions",
+                    "Real-time monitoring and reporting"
+                  ]}
+                  stats={[
+                    { label: "Compliance Level", value: "100%" },
+                    { label: "Updates", value: "Automatic" },
+                    { label: "Violations", value: "0" },
+                    { label: "Peace of Mind", value: "Guaranteed" }
+                  ]}
+                />
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">NAR Article 12 Compliance</p>
+                  <p className="text-sm text-muted-foreground">Our AI clearly identifies itself and maintains professional standards</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">TCPA & DNC Protection</p>
+                  <p className="text-sm text-muted-foreground">Built-in consent management prevents costly violations</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Fair Housing Trained</p>
+                  <p className="text-sm text-muted-foreground">AI systems trained to avoid any discriminatory practices</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 text-center">
+              <h4 className="font-semibold mb-2 text-primary">Peace of Mind Guarantee</h4>
+              <p className="text-sm text-muted-foreground mb-4">
+                Our system is continuously updated to maintain compliance with evolving regulations. 
+                We work with real estate attorneys and NAR to ensure your business stays protected.
+              </p>
+              <Button variant="outline" className="w-full">
+                <Shield className="mr-2 h-4 w-4" />
+                View Compliance Documentation
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* Integration Highlight */}
