@@ -145,7 +145,7 @@ export function CTASection() {
               Beta pricing ends December 31st. Lock in your 40% savings today.
             </p>
             <p className="text-primary-glow font-semibold">
-              Join 500+ realtors already winning with Smart Solution
+              Start winning with Smart Solution
             </p>
           </div>
         </div>

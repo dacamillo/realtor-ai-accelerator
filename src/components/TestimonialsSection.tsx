@@ -75,10 +75,10 @@ export function TestimonialsSection() {
             Usage Examples
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            How <span className="text-primary">Real Agents</span> Use Smart Solution
+            How to Use Smart Solution
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See exactly how agents implement our AI system to transform their daily operations.
+            See exactly how to implement our AI system to transform your daily operations.
           </p>
         </div>
 

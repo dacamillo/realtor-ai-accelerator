@@ -714,7 +714,7 @@ export function ROICalculatorPopup({ triggerButton }: { triggerButton: React.Rea
           
           <div className="text-center">
             <div className="text-sm text-muted-foreground mb-4">
-              "Join 500+ REALTORS® already growing with Smart Solution"
+              "Advanced AI technology for REALTORS®"
             </div>
             <div className="flex flex-col sm:flex-row gap-2 justify-center">
               <Button variant="default" size="lg">Start {selectedPlan} Plan</Button>

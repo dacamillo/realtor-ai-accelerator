@@ -107,7 +107,7 @@ export function HeroSection() {
                   <div key={i} className="w-8 h-8 bg-white/20 rounded-full border-2 border-white/30" />
                 ))}
               </div>
-              <span className="text-sm">Join 500+ REALTORS® growing with Smart Solution</span>
+              <span className="text-sm">Advanced AI technology for REALTORS®</span>
             </div>
           </div>
 
