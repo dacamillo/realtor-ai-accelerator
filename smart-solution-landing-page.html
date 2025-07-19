@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Solution Agency - Complete AI + CRM Suite for REALTORS®</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Custom CSS Variables and Design System */
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --primary: 216 76% 30%;
+            --primary-foreground: 0 0% 100%;
+            --primary-glow: 216 76% 40%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 16 100% 62%;
+            --accent-foreground: 0 0% 100%;
+            --success: 142 76% 36%;
+            --success-foreground: 0 0% 100%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 216 76% 30%;
+            --radius: 0.5rem;
+        }
+        
+        .dark {
+            --background: 222.2 84% 4.9%;
+            --foreground: 210 40% 98%;
+            --card: 222.2 84% 4.9%;
+            --card-foreground: 210 40% 98%;
+            --popover: 222.2 84% 4.9%;
+            --popover-foreground: 210 40% 98%;
+            --primary: 210 40% 98%;
+            --primary-foreground: 222.2 47.4% 11.2%;
+            --secondary: 217.2 32.6% 17.5%;
+            --secondary-foreground: 210 40% 98%;
+            --muted: 217.2 32.6% 17.5%;
+            --muted-foreground: 215 20.2% 65.1%;
+            --accent: 217.2 32.6% 17.5%;
+            --accent-foreground: 210 40% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 217.2 32.6% 17.5%;
+            --input: 217.2 32.6% 17.5%;
+            --ring: 212.7 26.8% 83.9%;
+        }
+        
+        body {
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+        }
+        
+        /* Custom Animations */
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.6s ease-out;
+        }
+        
+        .animate-slide-up {
+            animation: slide-up 0.8s ease-out;
+        }
+        
+        /* Gradient Backgrounds */
+        .bg-gradient-hero {
+            background: linear-gradient(135deg, hsl(216 76% 30%), hsl(216 76% 40%));
+        }
+        
+        .bg-gradient-cta {
+            background: linear-gradient(135deg, hsl(16 100% 62%), hsl(16 100% 72%));
+        }
+        
+        .bg-gradient-card {
+            background: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+        }
+        
+        .bg-gradient-subtle {
+            background: linear-gradient(180deg, hsl(216 76% 30% / 0.02), hsl(216 76% 30% / 0.08));
+        }
+        
+        /* Shadow Effects */
+        .shadow-soft {
+            box-shadow: 0 4px 20px -2px hsl(216 76% 30% / 0.1);
+        }
+        
+        .shadow-strong {
+            box-shadow: 0 10px 40px -10px hsl(216 76% 30% / 0.2);
+        }
+        
+        .shadow-glow {
+            box-shadow: 0 0 30px hsl(216 76% 40% / 0.3);
+        }
+        
+        /* Custom Button Styles */
+        .btn-primary {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border: 1px solid hsl(var(--primary));
+        }
+        
+        .btn-primary:hover {
+            background: hsl(216 76% 25%);
+        }
+        
+        .btn-cta {
+            background: linear-gradient(135deg, hsl(16 100% 62%), hsl(16 100% 72%));
+            color: white;
+            border: none;
+        }
+        
+        .btn-cta:hover {
+            background: linear-gradient(135deg, hsl(16 100% 57%), hsl(16 100% 67%));
+        }
+        
+        .btn-hero {
+            background: white;
+            color: hsl(var(--primary));
+            border: 2px solid white;
+        }
+        
+        .btn-hero:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: hsl(var(--foreground));
+            border: 1px solid hsl(var(--border));
+        }
+        
+        .btn-outline:hover {
+            background: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
+        }
+        
+        /* Card Styles */
+        .card {
+            background: hsl(var(--card));
+            color: hsl(var(--card-foreground));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+        }
+        
+        /* Badge Styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: calc(var(--radius) - 2px);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-primary {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+        }
+        
+        .badge-secondary {
+            background: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+        }
+        
+        .badge-outline {
+            background: transparent;
+            color: hsl(var(--foreground));
+            border: 1px solid hsl(var(--border));
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Spacing */
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        /* Text Colors */
+        .text-primary {
+            color: hsl(var(--primary));
+        }
+        
+        .text-primary-glow {
+            color: hsl(var(--primary-glow));
+        }
+        
+        .text-success {
+            color: hsl(var(--success));
+        }
+        
+        .text-destructive {
+            color: hsl(var(--destructive));
+        }
+        
+        .text-muted-foreground {
+            color: hsl(var(--muted-foreground));
+        }
+        
+        /* Background Colors */
+        .bg-primary {
+            background-color: hsl(var(--primary));
+        }
+        
+        .bg-muted {
+            background-color: hsl(var(--muted));
+        }
+        
+        .bg-destructive {
+            background-color: hsl(var(--destructive));
+        }
+        
+        .bg-success {
+            background-color: hsl(var(--success));
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-primary backdrop-blur-sm border-b border-opacity-20 shadow-soft" style="background: hsl(216 76% 30% / 0.95);">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
+                        <i data-lucide="phone" class="h-5 w-5 text-white"></i>
+                    </div>
+                    <span class="font-bold text-lg text-white">Smart Solution Agency</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav hidden md:flex items-center gap-8">
+                    <button onclick="scrollToSection('solution-section')" class="text-white/70 hover:text-white transition-colors cursor-pointer">Features</button>
+                    <button onclick="scrollToSection('pricing-section')" class="text-white/70 hover:text-white transition-colors cursor-pointer">Pricing</button>
+                    <button onclick="scrollToSection('testimonials-section')" class="text-white/70 hover:text-white transition-colors cursor-pointer">Testimonials</button>
+                    <button onclick="scrollToSection('calendar-section')" class="text-white/70 hover:text-white transition-colors cursor-pointer">Book Call</button>
+                </nav>
+
+                <!-- Desktop CTA -->
+                <div class="hidden md:flex items-center gap-4">
+                    <button onclick="scrollToSection('calendar-section')" class="btn-cta px-4 py-2 rounded font-medium">Book Call</button>
+                    <button onclick="scrollToSection('pricing-section')" class="btn-hero px-4 py-2 rounded font-medium">Get Started</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn md:hidden p-2" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="h-6 w-6 text-white"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-primary border-t border-white/20 py-4">
+                <nav class="flex flex-col gap-4">
+                    <button onclick="scrollToSection('solution-section')" class="text-white/70 hover:text-white transition-colors py-2 text-left cursor-pointer">Features</button>
+                    <button onclick="scrollToSection('pricing-section')" class="text-white/70 hover:text-white transition-colors py-2 text-left cursor-pointer">Pricing</button>
+                    <button onclick="scrollToSection('testimonials-section')" class="text-white/70 hover:text-white transition-colors py-2 text-left cursor-pointer">Testimonials</button>
+                    <button onclick="scrollToSection('calendar-section')" class="text-white/70 hover:text-white transition-colors py-2 text-left cursor-pointer">Book Call</button>
+                    <div class="flex flex-col gap-2 pt-4 border-t border-white/20">
+                        <button onclick="scrollToSection('calendar-section')" class="btn-cta px-4 py-2 rounded font-medium">Book Call</button>
+                        <button onclick="scrollToSection('pricing-section')" class="btn-hero px-4 py-2 rounded font-medium">Get Started</button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-gradient-hero overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0" style="background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1), transparent 50%);"></div>
+        
+        <div class="relative container mx-auto px-4 pt-24 pb-20">
+            <div class="hero-grid grid items-center min-h-[600px]">
+                <!-- Left Content -->
+                <div class="text-white space-y-8 animate-fade-in">
+                    <div class="space-y-4">
+                        <div class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium border border-white/20">
+                            🚀 Limited Beta Pricing - Save 40%
+                        </div>
+                        
+                        <h1 class="hero-title text-4xl md:text-6xl font-bold leading-tight">
+                            Never Miss Another
+                            <span class="block text-white">Real Estate Lead</span>
+                        </h1>
+                        
+                        <p class="text-xl text-white/90 leading-relaxed max-w-xl">
+                            The only NAR-compliant AI + CRM solution built specifically for REALTORS®. 
+                            Capture, qualify, and convert more leads while staying 100% compliant.
+                        </p>
+                    </div>
+
+                    <!-- Key Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">847%</div>
+                            <div class="text-sm text-white/80">ROI Increase</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">40+</div>
+                            <div class="text-sm text-white/80">Hours Saved</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">23%</div>
+                            <div class="text-sm text-white/80">Conversion Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">3.2x</div>
+                            <div class="text-sm text-white/80">More Deals</div>
+                        </div>
+                    </div>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToSection('pricing-section')" class="btn-hero px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 group">
+                            <i data-lucide="zap" class="h-5 w-5"></i>
+                            Get Started Now
+                            <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                        
+                        <button class="bg-white/10 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-lg border font-medium">
+                            Watch Demo
+                        </button>
+                        
+                        <button onclick="scrollToSection('calendar-section')" class="bg-white/10 border-white/30 text-white hover:bg-white/20 px-6 py-3 rounded-lg border font-medium flex items-center justify-center gap-2">
+                            <i data-lucide="calendar" class="h-5 w-5"></i>
+                            Book Free Call
+                        </button>
+                    </div>
+
+                    <!-- Social Proof -->
+                    <div class="flex items-center gap-4 text-white/80">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 bg-white/20 rounded-full border-2 border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border-2 border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border-2 border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border-2 border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 rounded-full border-2 border-white/30"></div>
+                        </div>
+                        <span class="text-sm">Join 500+ REALTORS® growing with Smart Solution</span>
+                    </div>
+                </div>
+
+                <!-- Right Content - Hero Image -->
+                <div class="relative animate-slide-up">
+                    <div class="relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                            alt="REALTOR using Smart Solution AI CRM system in modern real estate office" 
+                            class="w-full h-auto rounded-xl shadow-strong"
+                        />
+                        
+                        <!-- Floating Feature Cards -->
+                        <div class="absolute -top-4 -left-4 bg-white rounded-lg p-4 shadow-strong animate-fade-in">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="phone" class="h-8 w-8 text-primary"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">AI Voice Receptionist</div>
+                                    <div class="text-xs text-muted-foreground">24/7 Lead Capture</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -right-4 bg-white rounded-lg p-4 shadow-strong animate-fade-in">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="trending-up" class="h-8 w-8 text-success"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">+247% ROI</div>
+                                    <div class="text-xs text-muted-foreground">This Month</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute top-1/2 -left-6 bg-white rounded-lg p-4 shadow-strong animate-fade-in">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="message-square" class="h-8 w-8" style="color: hsl(var(--accent));"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Auto SMS Response</div>
+                                    <div class="text-xs text-muted-foreground">Instant Reply</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="section-padding bg-background relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 50%, hsl(216 76% 30% / 0.05), transparent 50%);"></div>
+        
+        <div class="container mx-auto px-4 relative">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <div class="badge badge-secondary mb-4 px-4 py-2">
+                    <i data-lucide="shield" class="mr-2 h-4 w-4"></i>
+                    NAR Regulation Safe & Compliant
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 mt-6">
+                    Built for <span class="text-primary">REALTORS®</span> by REALTORS®
+                </h2>
+                
+                <p class="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
+                    Our AI system is specifically designed for real estate professionals with full NAR compliance, 
+                    Fair Housing standards, and TCPA regulations built-in. Focus on growing your business while 
+                    we handle the compliance complexity.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <!-- Left - Image -->
+                <div class="relative">
+                    <img 
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                        alt="Real Estate Professional Using Compliant AI Technology" 
+                        class="w-full h-auto rounded-xl shadow-strong"
+                    />
+                    
+                    <!-- Floating Compliance Badge -->
+                    <div class="absolute -top-4 -right-4 bg-white rounded-lg p-4 shadow-strong">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="shield" class="h-8 w-8 text-primary"></i>
+                            <div>
+                                <div class="font-semibold text-sm">100% Compliant</div>
+                                <div class="text-xs text-muted-foreground">NAR Approved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right - Content -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold">
+                        Why Compliance Matters for REALTORS®
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-primary mt-1 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-medium">NAR Article 12 Compliance</p>
+                                <p class="text-sm text-muted-foreground">Our AI clearly identifies itself and maintains professional standards</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-primary mt-1 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-medium">TCPA & DNC Protection</p>
+                                <p class="text-sm text-muted-foreground">Built-in consent management prevents costly violations</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-primary mt-1 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-medium">Fair Housing Trained</p>
+                                <p class="text-sm text-muted-foreground">AI systems trained to avoid any discriminatory practices</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-primary mt-1 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-medium">Broker Oversight Ready</p>
+                                <p class="text-sm text-muted-foreground">Full transparency and control for compliance officers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-opacity-20 rounded-lg p-6" style="background: hsl(216 76% 30% / 0.05); border-color: hsl(216 76% 30% / 0.2);">
+                        <h4 class="font-semibold mb-2 text-primary">Peace of Mind Guarantee</h4>
+                        <p class="text-sm text-muted-foreground mb-4">
+                            Our system is continuously updated to maintain compliance with evolving regulations. 
+                            We work with real estate attorneys and NAR to ensure your business stays protected.
+                        </p>
+                        <button onclick="scrollToSection('calendar-section')" class="btn-outline w-full px-4 py-2 rounded flex items-center justify-center gap-2">
+                            <i data-lucide="clock" class="h-4 w-4"></i>
+                            Discuss Compliance with Our Team
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section-padding" style="background: hsl(var(--muted) / 0.3);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    The Hidden Cost of <span class="text-destructive">Outdated Real Estate Systems</span>
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Most REALTORS® lose 60-80% of potential leads due to slow response times, 
+                    disconnected systems, and manual processes. Here's what it's really costing your real estate business:
+                </p>
+            </div>
+
+            <div class="section-grid grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Problem Card 1 -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="text-center">
+                        <div class="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-3" style="background: hsl(var(--destructive) / 0.1);">
+                            <i data-lucide="dollar-sign" class="h-6 w-6 text-destructive"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Expensive, Disconnected Real Estate Tools</h3>
+                        <p class="text-muted-foreground text-sm mb-3">Paying $550-1,650/month for real estate CRM, lead gen, IDX, chatbots, and missed call services that don't work together.</p>
+                        <div class="text-destructive font-semibold">$550-1,650/mo</div>
+                    </div>
+                </div>
+
+                <!-- Problem Card 2 -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="text-center">
+                        <div class="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-3" style="background: hsl(var(--destructive) / 0.1);">
+                            <i data-lucide="clock" class="h-6 w-6 text-destructive"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Missed Leads After Hours</h3>
+                        <p class="text-muted-foreground text-sm mb-3">Losing qualified prospects because no one answers calls, texts, or social media messages outside business hours.</p>
+                        <div class="text-destructive font-semibold">40+ Lost Leads/mo</div>
+                    </div>
+                </div>
+
+                <!-- Problem Card 3 -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="text-center">
+                        <div class="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-3" style="background: hsl(var(--destructive) / 0.1);">
+                            <i data-lucide="trending-down" class="h-6 w-6 text-destructive"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Manual Follow-up Chaos</h3>
+                        <p class="text-muted-foreground text-sm mb-3">Spending hours on repetitive tasks instead of closing deals. No automated nurturing or qualification.</p>
+                        <div class="text-destructive font-semibold">40+ Hours/mo</div>
+                    </div>
+                </div>
+
+                <!-- Problem Card 4 -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="text-center">
+                        <div class="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-3" style="background: hsl(var(--destructive) / 0.1);">
+                            <i data-lucide="alert-triangle" class="h-6 w-6 text-destructive"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Low Conversion Rates</h3>
+                        <p class="text-muted-foreground text-sm mb-3">Industry average 8% lead conversion because of slow response times and inconsistent follow-up.</p>
+                        <div class="text-destructive font-semibold">Lost Revenue</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reality Check -->
+            <div class="border border-opacity-20 rounded-xl p-8 text-center" style="background: hsl(var(--destructive) / 0.05); border-color: hsl(var(--destructive) / 0.2);">
+                <h3 class="text-2xl font-bold text-destructive mb-4">
+                    The Reality: You're Losing $50,000+ Per Year
+                </h3>
+                <p class="text-lg text-muted-foreground mb-6">
+                    With average commission of $6,000 per deal, losing just 8-10 leads per month 
+                    costs you more than most agents make in a year.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 text-center mb-6">
+                    <div>
+                        <div class="text-3xl font-bold text-destructive">8-10</div>
+                        <div class="text-sm text-muted-foreground">Lost Leads/Month</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-destructive">$6,000</div>
+                        <div class="text-sm text-muted-foreground">Avg Commission</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-destructive">$50,000+</div>
+                        <div class="text-sm text-muted-foreground">Annual Loss</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution-section" class="section-padding bg-background">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="badge badge-outline mb-4 text-primary border-primary">
+                    Complete AI Suite
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    One Platform. <span class="text-primary">Six Powerful Tools.</span>
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Replace 5-8 separate tools with our integrated AI + CRM solution. 
+                    Everything works together seamlessly to capture, qualify, and convert more leads.
+                </p>
+            </div>
+
+            <div class="section-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Feature 1: Lead Connector CRM -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: hsl(var(--primary) / 0.1);">
+                            <i data-lucide="users" class="h-6 w-6 text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Lead Connector CRM</h3>
+                            <div class="badge badge-secondary text-xs">White-Labeled</div>
+                        </div>
+                    </div>
+                    <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                        Complete contact management, pipeline automation, and deal tracking. Looks like your own system.
+                    </p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Unlimited contacts
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Pipeline automation
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Custom branding
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Advanced reporting
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2: AI Voice Receptionist -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: hsl(var(--primary) / 0.1);">
+                            <i data-lucide="phone" class="h-6 w-6 text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">AI Voice Receptionist</h3>
+                            <div class="badge badge-secondary text-xs">24/7 Inbound</div>
+                        </div>
+                    </div>
+                    <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                        Never miss a call again. AI answers, qualifies leads, books appointments, and transfers when needed.
+                    </p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            24/7 availability
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Lead qualification
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Appointment booking
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Smart transfers
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3: AI Outbound Calling -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: hsl(var(--primary) / 0.1);">
+                            <i data-lucide="brain" class="h-6 w-6 text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">AI Outbound Calling</h3>
+                            <div class="badge badge-secondary text-xs">Automated Prospecting</div>
+                        </div>
+                    </div>
+                    <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                        Circle prospecting, FSBO follow-up, past client check-ins, and expired listing outreach on autopilot.
+                    </p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Circle prospecting
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            FSBO outreach
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Past client nurturing
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Expired listings
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4: Missed Call Text Back -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: hsl(var(--primary) / 0.1);">
+                            <i data-lucide="message-square" class="h-6 w-6 text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Missed Call Text Back</h3>
+                            <div class="badge badge-secondary text-xs">Instant Response</div>
+                        </div>
+                    </div>
+                    <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                        Automatic SMS responses to missed calls with lead capture and appointment scheduling.
+                    </p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Instant SMS replies
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Lead qualification
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Appointment booking
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            CRM integration
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 5: AI Social Media Bots -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: hsl(var(--primary) / 0.1);">
+                            <i data-lucide="zap" class="h-6 w-6 text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">AI Social Media Bots</h3>
+                            <div class="badge badge-secondary text-xs">Multi-Platform</div>
+                        </div>
+                    </div>
+                    <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                        Facebook Messenger and Instagram DM automation with intelligent lead capture and follow-up.
+                    </p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Facebook automation
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Instagram DMs
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Lead capture
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Smart sequences
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 6: Complete Automation -->
+                <div class="card bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: hsl(var(--primary) / 0.1);">
+                            <i data-lucide="bar-chart-3" class="h-6 w-6 text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Complete Automation</h3>
+                            <div class="badge badge-secondary text-xs">Workflows & Analytics</div>
+                        </div>
+                    </div>
+                    <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                        Lead scoring, drip campaigns, review requests, and referral follow-up with detailed analytics.
+                    </p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Lead scoring
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Drip campaigns
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Review automation
+                        </li>
+                        <li class="flex items-center gap-2 text-sm">
+                            <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                            Advanced analytics
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Integration Highlight -->
+            <div class="border border-opacity-20 rounded-xl p-8 text-center" style="background: hsl(216 76% 30% / 0.05); border-color: hsl(216 76% 30% / 0.2);">
+                <h3 class="text-2xl font-bold mb-4">
+                    <span class="text-primary">Seamless Integration</span> - Everything Works Together
+                </h3>
+                <p class="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                    Unlike disconnected tools, our platform shares data instantly across all features. 
+                    When the AI captures a lead, it's immediately in your CRM, ready for automated follow-up.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="badge badge-outline px-4 py-2">AI Voice → CRM</div>
+                    <div class="badge badge-outline px-4 py-2">Missed Calls → SMS</div>
+                    <div class="badge badge-outline px-4 py-2">Social → Pipeline</div>
+                    <div class="badge badge-outline px-4 py-2">Leads → Automation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials-section" class="section-padding bg-background">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="badge badge-outline mb-4 text-primary border-primary">
+                    Usage Examples
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    How <span class="text-primary">Real Agents</span> Use Smart Solution
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    See exactly how agents implement our AI system to transform their daily operations.
+                </p>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4" style="background: hsl(var(--primary) / 0.1);">
+                        <i data-lucide="phone" class="h-8 w-8 text-primary"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-primary mb-2">5,000+</div>
+                    <div class="text-muted-foreground">AI Calls Per Month</div>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4" style="background: hsl(var(--primary) / 0.1);">
+                        <i data-lucide="users" class="h-8 w-8 text-primary"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-primary mb-2">500+</div>
+                    <div class="text-muted-foreground">Active Users</div>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4" style="background: hsl(var(--primary) / 0.1);">
+                        <i data-lucide="target" class="h-8 w-8 text-primary"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-primary mb-2">100%</div>
+                    <div class="text-muted-foreground">NAR Compliant</div>
+                </div>
+            </div>
+
+            <!-- Usage Examples Section -->
+            <div class="border rounded-2xl p-8 mb-16" style="background: linear-gradient(to bottom right, hsl(216 76% 30% / 0.05), hsl(210 40% 96.1% / 0.05)); border-color: hsl(216 76% 30% / 0.1);">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold mb-2">Real Agent Success Blueprints</h3>
+                    <p class="text-muted-foreground">Discover the exact strategies our top performers use daily</p>
+                </div>
+                
+                <div class="section-grid grid lg:grid-cols-3 gap-8">
+                    <!-- Enterprise Plan Example -->
+                    <div class="relative border-2 shadow-glow hover:shadow-strong rounded-xl p-8 min-h-[480px]" style="background: linear-gradient(to bottom right, hsl(var(--background)), hsl(var(--background) / 0.95), hsl(216 76% 30% / 0.05)); border-color: hsl(216 76% 30% / 0.2);">
+                        <div class="absolute -top-3 -right-3 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg" style="background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));">
+                            🚀 Most Popular
+                        </div>
+                        
+                        <div class="text-center space-y-6 h-full flex flex-col">
+                            <div class="space-y-3">
+                                <div class="badge badge-outline text-sm font-bold text-primary border-primary px-3 py-1" style="background: hsl(var(--primary) / 0.1);">
+                                    Enterprise Plan
+                                </div>
+                                <div class="text-xl font-bold text-primary">5,000+ AI calls/month</div>
+                            </div>
+                            
+                            <h4 class="text-2xl font-bold text-foreground">
+                                Market Domination Blueprint
+                            </h4>
+                            
+                            <p class="text-muted-foreground text-base leading-relaxed">
+                                How 20+ top producers control entire markets using our system...
+                            </p>
+                            
+                            <div class="flex-1 text-left space-y-3">
+                                <h5 class="text-sm font-semibold text-center text-muted-foreground mb-4">What You'll Learn:</h5>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Circle Prospect 8+ New Listings Weekly</span>
+                                    </div>
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Dominate Multiple Luxury Markets</span>
+                                    </div>
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Generate 25+ Listing Appointments/Week</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full mt-auto text-white font-semibold shadow-lg py-3 rounded-lg" style="background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));">
+                                🔓 Unlock Complete Strategy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Professional Plan Example -->
+                    <div class="relative border-2 shadow-glow hover:shadow-strong rounded-xl p-8 min-h-[480px]" style="background: linear-gradient(to bottom right, hsl(var(--background)), hsl(var(--background) / 0.95), hsl(216 76% 30% / 0.05)); border-color: hsl(216 76% 30% / 0.2);">
+                        <div class="absolute -top-3 -right-3 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg" style="background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));">
+                            ⚡ Best Value
+                        </div>
+                        
+                        <div class="text-center space-y-6 h-full flex flex-col">
+                            <div class="space-y-3">
+                                <div class="badge badge-outline text-sm font-bold text-primary border-primary px-3 py-1" style="background: hsl(var(--primary) / 0.1);">
+                                    Professional Plan
+                                </div>
+                                <div class="text-xl font-bold text-primary">2,000 AI calls/month</div>
+                            </div>
+                            
+                            <h4 class="text-2xl font-bold text-foreground">
+                                Team Leader Transformation
+                            </h4>
+                            
+                            <p class="text-muted-foreground text-base leading-relaxed">
+                                The 90-day roadmap from solo agent to team leader...
+                            </p>
+                            
+                            <div class="flex-1 text-left space-y-3">
+                                <h5 class="text-sm font-semibold text-center text-muted-foreground mb-4">What You'll Learn:</h5>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Scale Beyond 50 Transactions/Year</span>
+                                    </div>
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Build Consistent Listing Pipeline</span>
+                                    </div>
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Run Weekly Market Events</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full mt-auto text-white font-semibold shadow-lg py-3 rounded-lg" style="background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));">
+                                🔓 Unlock Complete Strategy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Starter Plan Example -->
+                    <div class="relative border-2 shadow-glow hover:shadow-strong rounded-xl p-8 min-h-[480px]" style="background: linear-gradient(to bottom right, hsl(var(--background)), hsl(var(--background) / 0.95), hsl(216 76% 30% / 0.05)); border-color: hsl(216 76% 30% / 0.2);">
+                        <div class="absolute -top-3 -right-3 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg" style="background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));">
+                            🎯 Perfect Start
+                        </div>
+                        
+                        <div class="text-center space-y-6 h-full flex flex-col">
+                            <div class="space-y-3">
+                                <div class="badge badge-outline text-sm font-bold text-primary border-primary px-3 py-1" style="background: hsl(var(--primary) / 0.1);">
+                                    Starter Plan
+                                </div>
+                                <div class="text-xl font-bold text-primary">500 AI calls/month</div>
+                            </div>
+                            
+                            <h4 class="text-2xl font-bold text-foreground">
+                                Rookie to Rockstar Formula
+                            </h4>
+                            
+                            <p class="text-muted-foreground text-base leading-relaxed">
+                                The exact system new agents use to close 10+ deals monthly...
+                            </p>
+                            
+                            <div class="flex-1 text-left space-y-3">
+                                <h5 class="text-sm font-semibold text-center text-muted-foreground mb-4">What You'll Learn:</h5>
+                                <div class="space-y-2">
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Circle Prospect Every New Listing</span>
+                                    </div>
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Host Successful Open Houses</span>
+                                    </div>
+                                    <div class="flex items-start gap-2 text-sm">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                                        <span class="text-muted-foreground">Nurture Past Client Relationships</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full mt-auto text-white font-semibold shadow-lg py-3 rounded-lg" style="background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));">
+                                🔓 Unlock Complete Strategy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="border border-opacity-20 rounded-xl p-8 text-center" style="background: hsl(216 76% 30% / 0.05); border-color: hsl(216 76% 30% / 0.2);">
+                <h3 class="text-2xl font-bold mb-4">
+                    Ready to Implement <span class="text-primary">Your Own Strategy?</span>
+                </h3>
+                <p class="text-lg text-muted-foreground mb-6">
+                    Choose your plan and start your AI implementation today.
+                </p>
+                <div class="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+                    <span>✓ 30-day money-back guarantee</span>
+                    <span>✓ Setup included</span>
+                    <span>✓ Dedicated support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing-section" class="section-padding" style="background: hsl(var(--muted) / 0.3);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="badge badge-outline mb-4" style="color: hsl(var(--accent)); border-color: hsl(var(--accent));">
+                    Limited Beta Pricing - Save 40%
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Choose Your <span class="text-primary">Growth Plan</span>
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Each plan pays for itself with just one extra deal. 
+                    Compare what you're currently paying for inferior, disconnected tools.
+                </p>
+            </div>
+
+            <div class="section-grid grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Starter Plan -->
+                <div class="card relative bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                        <p class="text-muted-foreground text-sm mb-4">Perfect for new agents & part-time realtors</p>
+                        
+                        <div class="mb-4">
+                            <div class="flex items-center justify-center gap-2">
+                                <span class="text-4xl font-bold text-primary">$497</span>
+                                <div class="text-left">
+                                    <div class="text-sm text-muted-foreground line-through">$829</div>
+                                    <div class="text-sm text-muted-foreground">/month</div>
+                                </div>
+                            </div>
+                            <div class="badge badge-secondary mt-2 text-success">
+                                Save 40%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Complete Lead Connector CRM
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                AI Voice Receptionist (inbound)
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Missed Call Text Back
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Basic AI social bots
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                500 outbound AI calls/month
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Email automation
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Basic reporting
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Standard support
+                            </li>
+                        </ul>
+
+                        <div class="border border-opacity-20 rounded-lg p-4" style="background: hsl(var(--success) / 0.05); border-color: hsl(var(--success) / 0.2);">
+                            <div class="text-success font-semibold text-sm mb-1">ROI Guarantee:</div>
+                            <div class="text-xs text-muted-foreground">1 extra deal every 8-16 months pays for entire year</div>
+                        </div>
+
+                        <div class="bg-muted rounded-lg p-3" style="background: hsl(var(--muted) / 0.5);">
+                            <div class="text-xs text-muted-foreground text-center">vs $550-900/mo for separate tools</div>
+                        </div>
+
+                        <button onclick="window.open('https://link.fastpaydirect.com/payment-link/687ab496d6ab80e70fe6b16a', '_blank')" class="btn-primary w-full px-4 py-3 rounded-lg font-medium flex items-center justify-center gap-2 group mb-2">
+                            Start Starter Plan
+                            <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                        
+                        <div class="text-xs text-center text-muted-foreground mb-2 px-2">
+                            ✅ Setup form sent within minutes of payment
+                        </div>
+                        
+                        <button onclick="scrollToSection('calendar-section')" class="btn-outline w-full px-4 py-2 rounded">
+                            Book a Call First
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="card relative bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6 ring-2 ring-primary shadow-glow">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="badge badge-primary px-4 py-1 flex items-center gap-1">
+                            <i data-lucide="star" class="w-3 h-3"></i>
+                            Most Popular
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                        <p class="text-muted-foreground text-sm mb-4">Perfect for established agents & small teams</p>
+                        
+                        <div class="mb-4">
+                            <div class="flex items-center justify-center gap-2">
+                                <span class="text-4xl font-bold text-primary">$997</span>
+                                <div class="text-left">
+                                    <div class="text-sm text-muted-foreground line-through">$1,662</div>
+                                    <div class="text-sm text-muted-foreground">/month</div>
+                                </div>
+                            </div>
+                            <div class="badge badge-secondary mt-2 text-success">
+                                Save 40%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Everything in Starter
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                2,000 outbound AI calls/month
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Advanced AI social bots (all platforms)
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Lead scoring and qualification
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Advanced automation workflows
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Priority support
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Custom voice training
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Advanced analytics
+                            </li>
+                        </ul>
+
+                        <div class="border border-opacity-20 rounded-lg p-4" style="background: hsl(var(--success) / 0.05); border-color: hsl(var(--success) / 0.2);">
+                            <div class="text-success font-semibold text-sm mb-1">ROI Guarantee:</div>
+                            <div class="text-xs text-muted-foreground">1 extra deal every 4-8 months pays for entire year</div>
+                        </div>
+
+                        <div class="bg-muted rounded-lg p-3" style="background: hsl(var(--muted) / 0.5);">
+                            <div class="text-xs text-muted-foreground text-center">vs $800-1,400/mo for separate tools</div>
+                        </div>
+
+                        <button onclick="window.open('https://link.fastpaydirect.com/payment-link/687ab4b3ddc6a63a70c55e03', '_blank')" class="btn-cta w-full px-4 py-3 rounded-lg font-medium flex items-center justify-center gap-2 group mb-2">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                            Start Professional Plan
+                            <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                        
+                        <div class="text-xs text-center text-muted-foreground mb-2 px-2">
+                            ✅ Setup form sent within minutes of payment
+                        </div>
+                        
+                        <button onclick="scrollToSection('calendar-section')" class="btn-outline w-full px-4 py-2 rounded">
+                            Book a Call First
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="card relative bg-gradient-card border-0 shadow-soft hover:shadow-strong transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                        <p class="text-muted-foreground text-sm mb-4">Perfect for top producers & team leaders</p>
+                        
+                        <div class="mb-4">
+                            <div class="flex items-center justify-center gap-2">
+                                <span class="text-4xl font-bold text-primary">$1,997</span>
+                                <div class="text-left">
+                                    <div class="text-sm text-muted-foreground line-through">$3,328</div>
+                                    <div class="text-sm text-muted-foreground">/month</div>
+                                </div>
+                            </div>
+                            <div class="badge badge-secondary mt-2 text-success">
+                                Save 40%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Everything in Professional
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                5,000+ outbound AI calls/month
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Multi-agent CRM management
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Advanced analytics & reporting
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Custom integrations
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                Dedicated account manager
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                White-label options
+                            </li>
+                            <li class="flex items-start gap-2 text-sm">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success mt-0.5 flex-shrink-0"></i>
+                                24/7 priority support
+                            </li>
+                        </ul>
+
+                        <div class="border border-opacity-20 rounded-lg p-4" style="background: hsl(var(--success) / 0.05); border-color: hsl(var(--success) / 0.2);">
+                            <div class="text-success font-semibold text-sm mb-1">ROI Guarantee:</div>
+                            <div class="text-xs text-muted-foreground">1 extra deal every 2-4 months pays for entire year</div>
+                        </div>
+
+                        <div class="bg-muted rounded-lg p-3" style="background: hsl(var(--muted) / 0.5);">
+                            <div class="text-xs text-muted-foreground text-center">vs $1,200-1,650/mo for separate tools</div>
+                        </div>
+
+                        <button onclick="window.open('https://link.fastpaydirect.com/payment-link/687ab4c4ddc6a62cc0c55e05', '_blank')" class="btn-primary w-full px-4 py-3 rounded-lg font-medium flex items-center justify-center gap-2 group mb-2">
+                            Start Enterprise Plan
+                            <i data-lucide="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                        
+                        <div class="text-xs text-center text-muted-foreground mb-2 px-2">
+                            ✅ Setup form sent within minutes of payment
+                        </div>
+                        
+                        <button onclick="scrollToSection('calendar-section')" class="btn-outline w-full px-4 py-2 rounded">
+                            Book a Call First
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Comparison -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border border-opacity-20 rounded-xl p-6" style="background: hsl(var(--destructive) / 0.05); border-color: hsl(var(--destructive) / 0.2);">
+                    <h3 class="text-xl font-bold text-destructive mb-4">Current Solution (Disconnected)</h3>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>• CRM: $100-300/month</li>
+                        <li>• Lead Generation: $200-500/month</li>
+                        <li>• AI Chatbot: $100-400/month</li>
+                        <li>• Missed Call Service: $50-150/month</li>
+                        <li>• Social Media Management: $100-300/month</li>
+                        <li class="pt-2 border-t font-semibold text-destructive">
+                            Total: $550-1,650/month for inferior tools
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border border-opacity-20 rounded-xl p-6" style="background: hsl(var(--success) / 0.05); border-color: hsl(var(--success) / 0.2);">
+                    <h3 class="text-xl font-bold text-success mb-4">Smart Solution (Integrated)</h3>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>• Complete CRM + AI Suite</li>
+                        <li>• 24/7 Lead Capture & Qualification</li>
+                        <li>• Automated Follow-up & Nurturing</li>
+                        <li>• Multi-channel Communication</li>
+                        <li>• Advanced Analytics & Reporting</li>
+                        <li class="pt-2 border-t font-semibold text-success">
+                            Total: $497-1,997/month for superior integrated system
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar-section" class="section-padding bg-background">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Still Have Questions? <span class="text-primary">Let's Talk</span>
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Book a free strategy call to discuss your specific needs and see how our AI suite can transform your real estate business.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto card rounded-2xl shadow-soft p-8">
+                <iframe 
+                    src="https://api.leadconnectorhq.com/widget/booking/x6cSMbDK8KgMVmMJMN3I" 
+                    style="width: 100%; border: none; overflow: hidden; height: 600px;" 
+                    scrolling="no" 
+                    id="msgsndr-calendar"
+                ></iframe>
+                <script src="https://link.msgsndr.com/js/embed.js" type="text/javascript"></script>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-hero relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0" style="background: radial-gradient(circle at 70% 60%, rgba(255,255,255,0.1), transparent 50%);"></div>
+        
+        <div class="relative container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <!-- Urgency Badge -->
+                <div class="badge badge-outline mb-6 bg-white/10 border-white/30 text-white">
+                    🔥 Limited Beta Pricing Ends Soon
+                </div>
+
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    Don't Let Another Lead
+                    <span class="block text-primary-glow">Slip Away Tonight</span>
+                </h2>
+
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    While you're reading this, your competitors are capturing leads 24/7 with AI. 
+                    Every hour you wait is revenue walking out the door.
+                </p>
+
+                <!-- Key Points -->
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                        <div class="text-2xl font-bold text-primary-glow mb-1">$50,000+</div>
+                        <div class="text-sm text-white/80">Lost annually without 24/7 lead capture</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                        <div class="text-2xl font-bold text-primary-glow mb-1">1 Deal</div>
+                        <div class="text-sm text-white/80">Pays for entire year of service</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                        <div class="text-2xl font-bold text-primary-glow mb-1">40% OFF</div>
+                        <div class="text-sm text-white/80">Limited beta pricing expires soon</div>
+                    </div>
+                </div>
+
+                <!-- Main CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <button onclick="scrollToSection('pricing-section')" class="btn-hero text-xl px-10 py-6 rounded-lg font-medium flex items-center justify-center gap-2 group">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                        Start Capturing Leads Tonight
+                        <i data-lucide="arrow-right" class="h-5 w-5 transition-transform group-hover:translate-x-1"></i>
+                    </button>
+                    <button onclick="scrollToSection('calendar-section')" class="bg-white/10 border-white/30 text-white hover:bg-white/20 text-xl px-10 py-6 rounded-lg border font-medium">
+                        Schedule Demo Call
+                    </button>
+                </div>
+                
+                <div class="border border-opacity-30 rounded-lg p-4 mb-8" style="background: hsl(216 76% 30% / 0.2); border-color: hsl(216 76% 30% / 0.3);">
+                    <div class="text-sm font-medium text-white">
+                        ✅ Setup form automatically sent within minutes of payment • Live in 24-48 hours
+                    </div>
+                </div>
+
+                <!-- Guarantees -->
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="flex items-center gap-3 text-left">
+                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="clock" class="h-5 w-5 text-primary-glow"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm">Setup in 24 Hours</div>
+                            <div class="text-xs text-white/70">Get started immediately with our expert setup team</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 text-left">
+                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="shield" class="h-5 w-5 text-primary-glow"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm">30-Day Money Back</div>
+                            <div class="text-xs text-white/70">Not satisfied? Get a full refund, no questions asked</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 text-left">
+                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="headphones" class="h-5 w-5 text-primary-glow"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm">Dedicated Support</div>
+                            <div class="text-xs text-white/70">Direct access to our team for training and support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Reversal -->
+                <div class="bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">Zero Risk. Maximum Reward.</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                                <span>30-day money-back guarantee</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                                <span>Free setup and training included</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                                <span>Cancel anytime, keep the leads</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                                <span>Setup form sent within minutes of payment</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                                <span>Dedicated account manager</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-success"></i>
+                                <span>ROI tracking and optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Urgency -->
+                <div class="mt-8 text-center">
+                    <p class="text-white/70 text-sm mb-4">
+                        Beta pricing ends December 31st. Lock in your 40% savings today.
+                    </p>
+                    <p class="text-primary-glow font-semibold">
+                        Join 500+ realtors already winning with Smart Solution
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-muted border-t border-border" style="background: hsl(var(--muted) / 0.3);">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid lg:grid-cols-5 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
+                            <i data-lucide="phone" class="h-5 w-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-lg">Smart Solution Agency</span>
+                    </div>
+                    
+                    <p class="text-muted-foreground mb-6 max-w-md">
+                        The complete AI + CRM solution for real estate professionals. 
+                        Never miss another lead with our 24/7 automated system.
+                    </p>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3 text-muted-foreground">
+                            <i data-lucide="phone" class="h-4 w-4"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-muted-foreground">
+                            <i data-lucide="mail" class="h-4 w-4"></i>
+                            <span>hello@smartsolutionagency.com</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-muted-foreground">
+                            <i data-lucide="map-pin" class="h-4 w-4"></i>
+                            <span>123 Innovation Drive, Tech City, TC 12345</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="w-8 h-8 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                            <i data-lucide="facebook" class="h-4 w-4"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                            <i data-lucide="twitter" class="h-4 w-4"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                            <i data-lucide="linkedin" class="h-4 w-4"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+                            <i data-lucide="instagram" class="h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Product</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-muted-foreground hover:text-primary transition-colors text-sm">Features</a></li>
+                        <li><a href="#pricing" class="text-muted-foreground hover:text-primary transition-colors text-sm">Pricing</a></li>
+                        <li><a href="#integrations" class="text-muted-foreground hover:text-primary transition-colors text-sm">Integrations</a></li>
+                        <li><a href="#api" class="text-muted-foreground hover:text-primary transition-colors text-sm">API</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-muted-foreground hover:text-primary transition-colors text-sm">About Us</a></li>
+                        <li><a href="#careers" class="text-muted-foreground hover:text-primary transition-colors text-sm">Careers</a></li>
+                        <li><a href="#contact" class="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</a></li>
+                        <li><a href="#blog" class="text-muted-foreground hover:text-primary transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#help" class="text-muted-foreground hover:text-primary transition-colors text-sm">Help Center</a></li>
+                        <li><a href="#docs" class="text-muted-foreground hover:text-primary transition-colors text-sm">Documentation</a></li>
+                        <li><a href="#training" class="text-muted-foreground hover:text-primary transition-colors text-sm">Training</a></li>
+                        <li><a href="#status" class="text-muted-foreground hover:text-primary transition-colors text-sm">Status</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#privacy" class="text-muted-foreground hover:text-primary transition-colors text-sm">Privacy Policy</a></li>
+                        <li><a href="#terms" class="text-muted-foreground hover:text-primary transition-colors text-sm">Terms of Service</a></li>
+                        <li><a href="#cookies" class="text-muted-foreground hover:text-primary transition-colors text-sm">Cookie Policy</a></li>
+                        <li><a href="#gdpr" class="text-muted-foreground hover:text-primary transition-colors text-sm">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-muted-foreground text-sm">
+                    © 2024 Smart Solution Agency. All rights reserved.
+                </p>
+                
+                <div class="flex items-center gap-6 text-sm text-muted-foreground">
+                    <span>🔒 SOC 2 Compliant</span>
+                    <span>⚡ 99.9% Uptime</span>
+                    <span>🛡️ GDPR Ready</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LeadConnector Chat Widget -->
+    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            // Close mobile menu if open
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.remove('active');
+        }
+        
+        // Add scroll effects and animations
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons again after DOM is ready
+            lucide.createIcons();
+            
+            // Add entrance animations
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            animatedElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+    
+    <!-- LeadConnector Widget -->
+    <script
+        src="https://link.msgsndr.com/js/form_embed.js"
+        data-widget-id="65f0e7cfe4b0906e1e97c9eb"
+        data-resources-url="https://link.msgsndr.com"
+    ></script>
+</body>
+</html>
