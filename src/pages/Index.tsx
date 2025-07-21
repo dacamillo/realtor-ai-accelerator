@@ -6,7 +6,7 @@ import { PricingSection } from "@/components/PricingSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CalendarSection } from "@/components/CalendarSection";
 import { CTASection } from "@/components/CTASection";
-import { FloatingCTA } from "@/components/FloatingCTA";
+
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -23,7 +23,7 @@ const Index = () => {
         <CTASection />
       </main>
       <Footer />
-      <FloatingCTA />
+      
     </div>
   );
 };
