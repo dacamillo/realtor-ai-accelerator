@@ -6,17 +6,17 @@ import { UsageExamplesModal } from "./UsageExamplesModal";
 export function TestimonialsSection() {
   const usageExamples = [
     {
-      plan: "Enterprise",
-      title: "Market Domination Blueprint",
-      description: "How 20+ top producers control entire markets using our system...",
-      highlight: "5,000+ AI calls/month",
-      urgent: "🚀 Most Popular",
+      plan: "Starter",
+      title: "Rookie to Rockstar Formula", 
+      description: "The exact system new agents use to close 10+ deals monthly...",
+      highlight: "500 AI calls/month",
+      urgent: "🎯 Perfect Start",
       useCases: [
-        "Circle Prospect 8+ New Listings Weekly",
-        "Dominate Multiple Luxury Markets",
-        "Generate 25+ Listing Appointments/Week",
-        "Scale Team to 6-Figure Monthly Production",
-        "Run 3+ Open Houses Simultaneously"
+        "Circle Prospect Every New Listing",
+        "Host Successful Open Houses",
+        "Nurture Past Client Relationships",
+        "Convert Cold Leads to Appointments",
+        "Build Foundation for Growth"
       ]
     },
     {
@@ -34,17 +34,17 @@ export function TestimonialsSection() {
       ]
     },
     {
-      plan: "Starter",
-      title: "Rookie to Rockstar Formula", 
-      description: "The exact system new agents use to close 10+ deals monthly...",
-      highlight: "500 AI calls/month",
-      urgent: "🎯 Perfect Start",
+      plan: "Enterprise",
+      title: "Market Domination Blueprint",
+      description: "How 20+ top producers control entire markets using our system...",
+      highlight: "5,000+ AI calls/month",
+      urgent: "🚀 Most Popular",
       useCases: [
-        "Circle Prospect Every New Listing",
-        "Host Successful Open Houses",
-        "Nurture Past Client Relationships",
-        "Convert Cold Leads to Appointments",
-        "Build Foundation for Growth"
+        "Circle Prospect 8+ New Listings Weekly",
+        "Dominate Multiple Luxury Markets",
+        "Generate 25+ Listing Appointments/Week",
+        "Scale Team to 6-Figure Monthly Production",
+        "Run 3+ Open Houses Simultaneously"
       ]
     }
   ];

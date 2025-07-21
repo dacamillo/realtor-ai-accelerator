@@ -337,7 +337,11 @@ export function SolutionSection() {
                 Our system is continuously updated to maintain compliance with evolving regulations. 
                 We work with real estate attorneys and NAR to ensure your business stays protected.
               </p>
-              <Button variant="outline" className="w-full">
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => window.open('https://www.nar.realtor/legal/info-on-nar-article-12', '_blank')}
+              >
                 <Shield className="mr-2 h-4 w-4" />
                 View Compliance Documentation
               </Button>
@@ -362,30 +366,11 @@ export function SolutionSection() {
             <Badge variant="outline" className="px-4 py-2">Leads → Automation</Badge>
           </div>
           
-          <InteractiveFeatureModal
-            trigger={
-              <Button variant="cta" size="lg" className="group">
-                See Integration Demo
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            }
-            title="Seamless Integration Advantage"
-            description="Unlike disconnected tools, our platform shares data instantly across all features. When the AI captures a lead, it's immediately in your CRM, ready for automated follow-up, scoring, and conversion tracking."
-            benefits={[
-              "Real-time data sync across all tools",
-              "No manual data entry or imports needed",
-              "Leads automatically enter your sales pipeline",
-              "Complete conversation history preserved",
-              "Unified reporting and analytics",
-              "One login for everything"
-            ]}
-            stats={[
-              { label: "Integration Speed", value: "Instant" },
-              { label: "Data Accuracy", value: "100%" },
-              { label: "Manual Work Eliminated", value: "90%" },
-              { label: "Setup Time", value: "1 Day" }
-            ]}
-          />
+          <div className="text-center">
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Our integrated platform ensures all your tools work together seamlessly, eliminating data silos and maximizing your lead conversion potential.
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -202,30 +202,14 @@ export function ComplianceSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <InteractiveFeatureModal
-              trigger={
-                <Button variant="default" size="lg">
-                  <Shield className="mr-2 h-5 w-5" />
-                  See Compliance Documentation
-                </Button>
-              }
-              title="Complete Compliance Framework"
-              description="Review our comprehensive compliance documentation and see exactly how we protect your business from regulatory risks while maximizing your lead conversion."
-              benefits={[
-                "Detailed NAR Article 12 compliance documentation",
-                "TCPA and DNC compliance protocols",
-                "Fair Housing training certification",
-                "State-specific real estate regulation compliance",
-                "Ongoing legal updates and system adjustments",
-                "Full audit trail and reporting capabilities"
-              ]}
-              stats={[
-                { label: "Regulations Covered", value: "25+" },
-                { label: "Compliance Rate", value: "100%" },
-                { label: "Legal Reviews", value: "Monthly" },
-                { label: "Client Protection", value: "Guaranteed" }
-              ]}
-            />
+            <Button 
+              variant="default" 
+              size="lg"
+              onClick={() => window.open('https://www.nar.realtor/legal/info-on-nar-article-12', '_blank')}
+            >
+              <Shield className="mr-2 h-5 w-5" />
+              See Compliance Documentation
+            </Button>
             
             <Button variant="outline" size="lg" onClick={scrollToCalendar}>
               <Users className="mr-2 h-5 w-5" />

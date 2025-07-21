@@ -863,7 +863,13 @@ export function ComplianceDetailsPopup({ triggerButton }: { triggerButton: React
             We work with real estate attorneys and NAR to ensure your business stays protected.
           </p>
           <div className="flex flex-col sm:flex-row gap-2 justify-center">
-            <Button variant="default" size="lg">Get Compliance Documentation</Button>
+            <Button 
+              variant="default" 
+              size="lg"
+              onClick={() => window.open('https://www.nar.realtor/legal/info-on-nar-article-12', '_blank')}
+            >
+              Get Compliance Documentation
+            </Button>
             <Button variant="outline" size="lg">Book Compliance Review</Button>
           </div>
         </div>
