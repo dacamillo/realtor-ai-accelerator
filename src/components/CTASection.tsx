@@ -79,7 +79,7 @@ export function CTASection() {
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-xl px-10 py-6" onClick={() => document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' })}>
-              Schedule Demo Call
+              Learn More
             </Button>
           </div>
           

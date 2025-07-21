@@ -73,7 +73,7 @@ export function HeroSection() {
               <InteractiveFeatureModal
                 trigger={
                   <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                    Watch Demo
+                    Learn More
                   </Button>
                 }
                 title="Complete AI & CRM Suite Demo"
