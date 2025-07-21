@@ -205,7 +205,7 @@ export function ComplianceSection() {
             <Button 
               variant="default" 
               size="lg"
-              onClick={() => window.open('https://www.nar.realtor/legal/info-on-nar-article-12', '_blank')}
+              onClick={() => window.open('https://www.nar.realtor/about-nar/governing-documents/the-code-of-ethics', '_blank')}
             >
               <Shield className="mr-2 h-5 w-5" />
               See Compliance Documentation
