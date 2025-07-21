@@ -34,8 +34,8 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
-              <Phone className="h-5 w-5 text-white" />
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+              <img src="/lovable-uploads/8ea1bb1c-9a00-4d00-a43c-4c704e11ca1f.png" alt="Smart Solution Agency" className="h-8 w-8 object-contain" />
             </div>
             <span className="font-bold text-lg text-white">Smart Solution Agency</span>
           </div>
