@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 
 export function Footer() {
   const footerLinks = {
@@ -29,10 +29,8 @@ export function Footer() {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" }
+    { icon: Facebook, href: "https://www.facebook.com/share/1B5V3zRMv7/", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/smart.solution.agency?igsh=YjgyZmw2a283cHl0", label: "Instagram" }
   ];
 
   return (
@@ -54,14 +52,14 @@ export function Footer() {
             </p>
 
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-3 text-muted-foreground">
+              <a href="tel:716-982-1506" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4" />
                 <span>716-982-1506</span>
-              </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
+              </a>
+              <a href="mailto:craig@smartsolutionagency.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-4 w-4" />
                 <span>craig@smartsolutionagency.com</span>
-              </div>
+              </a>
             </div>
 
             {/* Social Links */}
