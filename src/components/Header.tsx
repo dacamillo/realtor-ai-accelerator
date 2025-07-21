@@ -24,7 +24,7 @@ export function Header() {
   const navItems = [
     { label: "Features", sectionId: "solution-section" },
     { label: "Pricing", sectionId: "pricing-section" },
-    { label: "Testimonials", sectionId: "testimonials-section" }
+    { label: "Use Cases", sectionId: "testimonials-section" }
   ];
 
   return (
