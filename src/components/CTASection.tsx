@@ -35,7 +35,9 @@ export function CTASection() {
 
   return (
     <section className="py-20 bg-gradient-hero relative overflow-hidden">
-      {/* Background decoration */}
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 bg-[url('/assets/realtor-technology.jpg')] bg-cover bg-center" />
+      <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(255,255,255,0.1),transparent_50%)]" />
       
       <div className="relative container mx-auto px-4">
@@ -45,9 +47,9 @@ export function CTASection() {
             🔥 Limited Beta Pricing Ends Soon
           </Badge>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
             Don't Let Another Lead
-            <span className="block text-primary-glow">Slip Away Tonight</span>
+            <span className="block text-white">Slip Away Tonight</span>
           </h2>
 
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
