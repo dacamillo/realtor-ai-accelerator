@@ -72,9 +72,6 @@ export function PricingSection() {
     <section id="pricing-section" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 text-accent border-accent">
-            Limited Beta Pricing - Save 40%
-          </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Choose Your <span className="text-primary">Growth Plan</span>
           </h2>

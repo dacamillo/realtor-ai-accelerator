@@ -26,9 +26,6 @@ export function HeroSection() {
           {/* Left Content */}
           <div className="text-white space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <div className="inline-block bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium border border-white/20">
-                🚀 Limited Beta Pricing - Save 40%
-              </div>
               
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Never Miss Another

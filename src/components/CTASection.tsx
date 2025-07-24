@@ -43,9 +43,6 @@ export function CTASection() {
       <div className="relative container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center text-white">
           {/* Urgency Badge */}
-          <Badge variant="outline" className="mb-6 bg-white/10 border-white/30 text-white">
-            🔥 Limited Beta Pricing Ends Soon
-          </Badge>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
             Don't Let Another Lead
@@ -68,8 +65,8 @@ export function CTASection() {
               <div className="text-sm text-white/80">Pays for entire year of service</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <div className="text-2xl font-bold text-primary-glow mb-1">40% OFF</div>
-              <div className="text-sm text-white/80">Limited beta pricing expires soon</div>
+              <div className="text-2xl font-bold text-primary-glow mb-1">Special</div>
+              <div className="text-sm text-white/80">Launch pricing available now</div>
             </div>
           </div>
 
