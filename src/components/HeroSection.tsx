@@ -14,6 +14,10 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen bg-gradient-hero overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 bg-[url('/assets/realtor-hero.jpg')] bg-cover bg-center" />
+      {/* Dark blue overlay */}
+      <div className="absolute inset-0 bg-primary/80" />
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.1),transparent_50%)]" />
       
