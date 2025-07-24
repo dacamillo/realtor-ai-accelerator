@@ -28,7 +28,7 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/90 backdrop-blur-sm border-b border-primary/20 shadow-soft">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-gray-200 shadow-soft">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -36,7 +36,7 @@ export function Header() {
             <div className="w-16 h-16 rounded-lg flex items-center justify-center">
               <img src="/lovable-uploads/8ea1bb1c-9a00-4d00-a43c-4c704e11ca1f.png" alt="Smart Solution Agency" className="h-16 w-16 object-contain" />
             </div>
-            <span className="font-bold text-lg text-white">Smart Solution Agency</span>
+            <span className="font-bold text-lg text-primary">Smart Solution Agency</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -45,7 +45,7 @@ export function Header() {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.sectionId)}
-                className="text-white/70 hover:text-white transition-colors cursor-pointer"
+                className="text-primary/70 hover:text-primary transition-colors cursor-pointer font-medium"
               >
                 {item.label}
               </button>
@@ -68,27 +68,27 @@ export function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-white" />
+              <X className="h-6 w-6 text-primary" />
             ) : (
-              <Menu className="h-6 w-6 text-white" />
+              <Menu className="h-6 w-6 text-primary" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-primary border-t border-primary/20 py-4">
+          <div className="md:hidden bg-white border-t border-gray-200 py-4">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="text-white/70 hover:text-white transition-colors py-2 text-left cursor-pointer"
+                  className="text-primary/70 hover:text-primary transition-colors py-2 text-left cursor-pointer font-medium"
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="flex flex-col gap-2 pt-4 border-t border-primary/20">
+              <div className="flex flex-col gap-2 pt-4 border-t border-gray-200">
                 <Button variant="cta" size="sm" onClick={scrollToCalendar}>
                   Book Call
                 </Button>
